@@ -1,6 +1,6 @@
-# Maths Package
+# Maths
 
-The maths package includes mathematical functions not defined in the standard Go
+Maths includes mathematical functions not defined in the standard Go
 math package.
 
 ## Number Theory
