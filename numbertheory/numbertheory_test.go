@@ -54,13 +54,13 @@ func TestPrimeFactorization(t *testing.T) {
 }
 
 func TestNumberOfDivisors(t *testing.T) {
-	compare := func(t *testing.T, a int, b int) {
+	compare := func(t *testing.T, a uint64, b uint64) {
 		if a != b {
 			t.Logf("expected %v, got %v", a, b)
 			t.FailNow()
 		}
 	}
-	cases := map[uint64]int{
+	cases := map[uint64]uint64{
 		11: 2,
 		36: 9,
 		48: 10,

@@ -68,13 +68,13 @@ func TotientK(n uint64, k uint64) uint64 {
 }
 
 // https://oeis.org/A000005
-func NumberOfDivisors(n uint64) int {
+func NumberOfDivisors(n uint64) uint64 {
 	factors := PrimeFactorization(n)
 
-	product := 1
+	product := uint64(1)
 
 	last := uint64(0)
-	exponent := 0
+	exponent := uint64(0)
 	for _, p := range factors {
 		if p == last {
 			exponent += 1
