@@ -6,15 +6,32 @@ math package.
 ## Number Theory
 
 ```go
-// prime factorize any uint64
+// Aliquot sum
+numbertheory.AliquotSum(60) // will return uint64(108)
+
+// Möbius function
+numbertheory.Mobius(70) // will return int8(-1)
+
+// Number of divisors
+numbertheory.NumberOfDivisors(48) // will return uint64(10)
+
+// Polygonal numbers
+numbertheory.PolygonalNumber(3, 4) // will return uint64(10)
+numbertheory.PolygonalRoot(3, 10) // will return float64(4)
+numbertheory.PolygonalSides(4, 10) // will return float64(3)
+
+// Prime factorize any uint64
 numbertheory.PrimeFactorization(184756) // will return []uint64{2, 2, 11, 13, 17, 19}
+
+// Radical
+numbertheory.Radical(60) // will return uint64(30)
+
+// Sum of divisors
+numbertheory.SumOfDivisors(48) // will return uint64(10)
 
 // Euler's totient
 numbertheory.Totient(68) // will return uint64(32)
 
 // Jordan's totient
 numbertheory.TotientK(60, 2) // will return uint64(2304)
-
-// Number of divisors
-numbertheory.NumberOfDivisors(48) // will return uint64(10)
 ```
