@@ -5,6 +5,9 @@ package numbertheory
 // https://en.wikipedia.org/wiki/Divisor_function
 // https://oeis.org/A000203
 func SumOfDivisors(n uint64) uint64 {
+	if n == 0 {
+		return 0
+	}
 	factors := PrimeFactorization(n)
 	last := uint64(0)
 	product := uint64(1)
