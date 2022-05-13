@@ -15,6 +15,9 @@ numbertheory.Mobius(70) // will return int8(-1)
 // Number of divisors
 numbertheory.NumberOfDivisors(48) // will return uint64(10)
 
+// Politeness
+numbertheory.Politeness(32) // will return uint64(0)
+
 // Polygonal numbers
 numbertheory.PolygonalNumber(3, 4) // will return uint64(10)
 numbertheory.PolygonalRoot(3, 10) // will return float64(4)
