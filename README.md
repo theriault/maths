@@ -1,5 +1,7 @@
 # Maths
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/theriault/maths.svg)](https://pkg.go.dev/github.com/theriault/maths)
+
 maths includes mathematical functions not defined in the standard Go math package.
 
 ## Number Theory
