@@ -14,6 +14,27 @@ go get github.com/theriault/maths
 
 ## What's Included
 
+### Combinatorics
+
+```go
+import "github.com/theriault/maths/combinatorics"
+```
+
+```go
+// Factorial: n!
+combinatorics.Factorial(10) // will return uint64(3628800)
+
+// Falling factorial + partial permutations
+combinatorics.FallingFactorial(8, 3) // will return uint64(336)
+combinatorics.PartialPermutations(8, 3) // will return uint64(336)
+
+// Primorial
+combinatorics.Primorial(30) // will return uint64(6469693230)
+
+// Rising factorial
+combinatorics.RisingFactorial(2, 3) // will return uint64(24)
+```
+
 ### Number Theory
 
 ```go
