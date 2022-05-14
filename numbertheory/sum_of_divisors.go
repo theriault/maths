@@ -1,6 +1,6 @@
 package numbertheory
 
-// Sum-of-divisors function sums the divisors of an integer.
+// SumOfDivisors returns the sum of the divisors of n.
 //
 // https://en.wikipedia.org/wiki/Divisor_function
 //

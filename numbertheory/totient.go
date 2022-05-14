@@ -2,7 +2,8 @@ package numbertheory
 
 import "math"
 
-// Euler's totient function counts the positive integers up to a given integer n that are relatively prime to n.
+// Totient (Euler's totient) returns the number of positive integers up to a given integer n that are relatively prime
+// to n.
 //
 // https://en.wikipedia.org/wiki/Euler's_totient_function
 // https://oeis.org/A000010
@@ -10,7 +11,7 @@ func Totient[A Integer](n A) uint64 {
 	return TotientK(n, 1)
 }
 
-// Jordan's totient function equals the number of k-tuples of positive integers that are less than or equal to n and
+// TotientK (Jordan's totient) returns the number of k-tuples of positive integers that are less than or equal to n and
 // that together with n form a coprime set of k + 1 integers.
 //
 // https://en.wikipedia.org/wiki/Jordan's_totient_function

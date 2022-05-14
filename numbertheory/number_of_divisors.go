@@ -1,6 +1,6 @@
 package numbertheory
 
-// Number-of-divisors function counts the number of divisors of an integer.
+// NumberOfDivisors returns the number of divisors of n.
 //
 // https://en.wikipedia.org/wiki/Divisor_function
 //

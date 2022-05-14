@@ -4,7 +4,7 @@ import (
 	"math"
 )
 
-// Return the prime factorization of the given integer.
+// PrimeFactorization returns the prime factorization of n.
 //
 // https://en.wikipedia.org/wiki/Integer_factorization
 func PrimeFactorization[A Integer](n A) []uint64 {

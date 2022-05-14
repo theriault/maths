@@ -1,6 +1,7 @@
 package numbertheory
 
-// Politeness
+// Politeness returns the number of ways n can be expressed as the sum of
+// consecutive numbers.
 //
 // https://en.wikipedia.org/wiki/Polite_number
 //

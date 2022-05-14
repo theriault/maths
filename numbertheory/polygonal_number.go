@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-// PolygonalNumber returns the nth s-gon number. If s < 3, it will return an error.
+// PolygonalNumber returns the nth s-gon number. If s < 3, returns an error.
 //
 // https://en.wikipedia.org/wiki/Polygonal_number
 func PolygonalNumber[A Integer, B Integer](s A, n B) (uint64, error) {
@@ -17,7 +17,7 @@ func PolygonalNumber[A Integer, B Integer](s A, n B) (uint64, error) {
 	return (si-2)*(ni*(ni-1))/2 + ni, nil
 }
 
-// PolygonalRoot returns the s-gonal root of x. Uf s < 3, it will return an error.
+// PolygonalRoot returns the s-gonal root of x. If s < 3, returns an error.
 //
 // https://en.wikipedia.org/wiki/Polygonal_number
 func PolygonalRoot[A Integer, B Integer](s A, x B) (float64, error) {

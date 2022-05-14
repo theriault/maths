@@ -1,7 +1,7 @@
 package numbertheory
 
-// Möbius function μ(n) returns 0 if n is not square-free, -1 if n is square-free and has an odd number of prime
-// factors, or 1 if n is square-free and has an even number of prime factors.
+// Mobius (Möbius function μ(n)) returns 0 if n is not square-free, -1 if n is square-free and has an odd number of
+// prime factors, or 1 if n is square-free and has an even number of prime factors.
 //
 // https://en.wikipedia.org/wiki/Mobius_function
 //
