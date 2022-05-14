@@ -167,3 +167,21 @@ func TestPolygonalSides(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkPolygonalNumber(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		PolygonalNumber(3, i)
+	}
+}
+
+func BenchmarkPolygonalRoot(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		PolygonalRoot(3, i)
+	}
+}
+
+func BenchmarkPolygonalSides(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		PolygonalSides(3+i, 3+i)
+	}
+}

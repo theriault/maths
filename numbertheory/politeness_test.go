@@ -38,3 +38,9 @@ func TestPoliteness(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkPoliteness(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Politeness(i)
+	}
+}

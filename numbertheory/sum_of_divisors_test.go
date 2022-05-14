@@ -36,3 +36,9 @@ func TestSumOfDivisors(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkSumOfDivisors(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		SumOfDivisors(i)
+	}
+}

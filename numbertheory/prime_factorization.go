@@ -4,6 +4,9 @@ import (
 	"math"
 )
 
+var smallPrimes = []uint64{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37}
+var step = []uint64{2, 4, 2, 4, 2, 4, 6}
+
 // PrimeFactorization returns the prime factorization of n.
 //
 // https://en.wikipedia.org/wiki/Integer_factorization
@@ -15,28 +18,29 @@ func PrimeFactorization[A Integer](n A) []uint64 {
 
 	remainder := uint64(n)
 
-	for _, divisor := range []uint64{2, 3} {
-		for remainder%divisor == 0 {
-			factors = append(factors, divisor)
-			remainder /= divisor
+	for _, p := range smallPrimes {
+		for remainder%p == 0 {
+			factors = append(factors, p)
+			remainder /= p
 		}
 	}
+	divisor := uint64(41)
+	f := 0
+	l := 0
+	sqrtn := uint64(math.Sqrt(float64(remainder)))
 
-	divisor := uint64(5)
-	sqrtn := math.Sqrt(float64(remainder))
-	for float64(divisor) <= sqrtn {
-		for remainder%divisor == 0 {
-			factors = append(factors, divisor)
-			remainder /= divisor
-			sqrtn = math.Sqrt(float64(remainder))
+	for divisor <= sqrtn {
+		for _, s := range step {
+			for remainder%divisor == 0 {
+				f++
+				factors = append(factors, divisor)
+				remainder /= divisor
+			}
+			divisor += s
 		}
-		divisor += 2
-		for remainder%divisor == 0 {
-			factors = append(factors, divisor)
-			remainder /= divisor
-			sqrtn = math.Sqrt(float64(remainder))
+		if f != l {
+			l, sqrtn = f, uint64(math.Sqrt(float64(remainder)))
 		}
-		divisor += 4
 	}
 
 	if remainder > 1 {

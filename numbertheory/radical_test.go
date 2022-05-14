@@ -34,3 +34,9 @@ func TestRadical(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkRadical(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Radical(i)
+	}
+}

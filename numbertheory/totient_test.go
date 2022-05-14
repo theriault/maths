@@ -64,3 +64,15 @@ func TestTotientK2(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkTotient(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Totient(i)
+	}
+}
+
+func BenchmarkTotientK(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		TotientK(i, 2)
+	}
+}

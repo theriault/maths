@@ -33,3 +33,9 @@ func TestNumberOfDivisors(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkNumberOfDivisors(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		NumberOfDivisors(i)
+	}
+}

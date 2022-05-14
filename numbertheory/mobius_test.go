@@ -34,3 +34,9 @@ func TestMobius(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkMobius(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Mobius(i)
+	}
+}

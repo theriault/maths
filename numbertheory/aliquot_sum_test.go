@@ -35,3 +35,9 @@ func TestAliquotSum(t *testing.T) {
 		})
 	}
 }
+
+func BenchmarkAliquotSum(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		AliquotSum(i)
+	}
+}
