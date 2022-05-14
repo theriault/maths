@@ -2,10 +2,19 @@
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/theriault/maths.svg)](https://pkg.go.dev/github.com/theriault/maths)
 [![Go](https://github.com/Theriault/maths/actions/workflows/go.yml/badge.svg)](https://github.com/Theriault/maths/actions/workflows/go.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/theriault/maths)](https://goreportcard.com/report/github.com/theriault/maths)
 
 maths includes mathematical functions not defined in the standard Go math package.
 
-## Number Theory
+## Installation
+
+```sh
+go get github.com/theriault/maths 
+```
+
+## What's Included
+
+### Number Theory
 
 ```go
 import "github.com/theriault/maths/numbertheory"
