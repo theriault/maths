@@ -5,7 +5,7 @@ package numbertheory
 // https://en.wikipedia.org/wiki/Radical_of_an_integer
 //
 // https://oeis.org/A007947
-func Radical(n uint64) uint64 {
+func Radical[A Integer](n A) uint64 {
 	factors := PrimeFactorization(n)
 	radical := uint64(1)
 	last := uint64(1)

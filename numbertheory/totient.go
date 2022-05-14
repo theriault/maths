@@ -6,7 +6,7 @@ import "math"
 //
 // https://en.wikipedia.org/wiki/Euler's_totient_function
 // https://oeis.org/A000010
-func Totient(n uint64) uint64 {
+func Totient[A Integer](n A) uint64 {
 	return TotientK(n, 1)
 }
 
@@ -16,7 +16,7 @@ func Totient(n uint64) uint64 {
 // https://en.wikipedia.org/wiki/Jordan's_totient_function
 //
 // https://oeis.org/A007434 (k=2)
-func TotientK(n uint64, k uint64) uint64 {
+func TotientK[A Integer, B Integer](n A, k B) uint64 {
 	J := math.Pow(float64(n), float64(k))
 	primes := PrimeFactorization(n)
 
