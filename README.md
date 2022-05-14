@@ -1,6 +1,7 @@
 # Maths
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/theriault/maths.svg)](https://pkg.go.dev/github.com/theriault/maths)
+[![Go](https://github.com/Theriault/maths/actions/workflows/go.yml/badge.svg)](https://github.com/Theriault/maths/actions/workflows/go.yml)
 
 maths includes mathematical functions not defined in the standard Go math package.
 
