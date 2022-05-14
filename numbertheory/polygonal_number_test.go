@@ -5,6 +5,23 @@ import (
 	"testing"
 )
 
+func ExamplePolygonalNumber() {
+	var n uint64 = 30
+	p, _ := PolygonalNumber(3, n)
+	fmt.Printf("The %vth triangular number is %v.\n", n, p)
+
+	p, _ = PolygonalNumber(4, n)
+	fmt.Printf("The %vth square number is %v.\n", n, p)
+
+	p, _ = PolygonalNumber(5, n)
+	fmt.Printf("The %vth pentagonal number is %v.\n", n, p)
+
+	// Output:
+	// The 30th triangular number is 465.
+	// The 30th square number is 900.
+	// The 30th pentagonal number is 1335.
+}
+
 func TestPolygonalNumber(t *testing.T) {
 	compare := func(t *testing.T, expected uint64, actual uint64) {
 		if expected != actual {
@@ -46,6 +63,25 @@ func TestPolygonalNumber(t *testing.T) {
 	}
 }
 
+func ExamplePolygonalRoot() {
+	var x uint64 = 465
+	p, _ := PolygonalRoot(3, x)
+	fmt.Printf("The triangular root of %v is %v.\n", x, p)
+
+	x = 900
+	p, _ = PolygonalRoot(4, x)
+	fmt.Printf("The square root of %v is %v.\n", x, p)
+
+	x = 1335
+	p, _ = PolygonalRoot(5, x)
+	fmt.Printf("The pentagonal root of %v is %v.\n", x, p)
+
+	// Output:
+	// The triangular root of 465 is 30.
+	// The square root of 900 is 30.
+	// The pentagonal root of 1335 is 30.
+}
+
 func TestPolygonalRoot(t *testing.T) {
 	compare := func(t *testing.T, expected float64, actual float64) {
 		if expected != actual {
@@ -82,6 +118,25 @@ func TestPolygonalRoot(t *testing.T) {
 			}
 		})
 	}
+}
+
+func ExamplePolygonalSides() {
+	var x uint64 = 465
+	p := PolygonalSides(30, x)
+	fmt.Printf("The 30th polygonal number that has a value of %v has %v sides.\n", x, p)
+
+	x = 900
+	p = PolygonalSides(30, x)
+	fmt.Printf("The 30th polygonal number that has a value of %v has %v sides.\n", x, p)
+
+	x = 1335
+	p = PolygonalSides(30, x)
+	fmt.Printf("The 30th polygonal number that has a value of %v has %v sides.\n", x, p)
+
+	// Output:
+	// The 30th polygonal number that has a value of 465 has 3 sides.
+	// The 30th polygonal number that has a value of 900 has 4 sides.
+	// The 30th polygonal number that has a value of 1335 has 5 sides.
 }
 
 func TestPolygonalSides(t *testing.T) {

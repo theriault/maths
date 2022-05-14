@@ -3,8 +3,9 @@ package numbertheory
 // Number-of-divisors function counts the number of divisors of an integer.
 //
 // https://en.wikipedia.org/wiki/Divisor_function
+//
 // https://oeis.org/A000005
-func NumberOfDivisors(n uint64) uint64 {
+func NumberOfDivisors[A Integer](n A) uint64 {
 	factors := PrimeFactorization(n)
 
 	product := uint64(1)

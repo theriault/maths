@@ -5,6 +5,14 @@ import (
 	"testing"
 )
 
+func ExampleNumberOfDivisors() {
+	n := NumberOfDivisors(48)
+	fmt.Printf("The number-of-divisors of 48 is %v.\n", n)
+
+	// Output:
+	// The number-of-divisors of 48 is 10.
+}
+
 func TestNumberOfDivisors(t *testing.T) {
 	compare := func(t *testing.T, a uint64, b uint64) {
 		if a != b {

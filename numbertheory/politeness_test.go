@@ -5,6 +5,14 @@ import (
 	"testing"
 )
 
+func ExamplePoliteness() {
+	n := Politeness(42)
+	fmt.Printf("The politeness of 42 is %v.\n", n)
+
+	// Output:
+	// The politeness of 42 is 3.
+}
+
 func TestPoliteness(t *testing.T) {
 	compare := func(t *testing.T, a uint64, b uint64) {
 		if a != b {

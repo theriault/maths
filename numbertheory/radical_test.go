@@ -5,6 +5,14 @@ import (
 	"testing"
 )
 
+func ExampleRadical() {
+	r := Radical(60)
+	fmt.Printf("The radical of 60 is %v.\n", r)
+
+	// Output:
+	// The radical of 60 is 30.
+}
+
 func TestRadical(t *testing.T) {
 	compare := func(t *testing.T, a uint64, b uint64) {
 		if a != b {

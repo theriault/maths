@@ -5,6 +5,14 @@ import (
 	"testing"
 )
 
+func ExampleTotient() {
+	r := Totient(60)
+	fmt.Printf("Euler's totient of 60 is %v.\n", r)
+
+	// Output:
+	// Euler's totient of 60 is 16.
+}
+
 func TestTotient(t *testing.T) {
 	compare := func(t *testing.T, a uint64, b uint64) {
 		if a != b {
@@ -26,6 +34,14 @@ func TestTotient(t *testing.T) {
 			compare(t, expected, Totient(n))
 		})
 	}
+}
+
+func ExampleTotientK() {
+	r := TotientK(60, 2)
+	fmt.Printf("The J₂ of 60 is %v.", r)
+
+	// Output:
+	// The J₂ of 60 is 2304.
 }
 
 func TestTotientK2(t *testing.T) {

@@ -14,6 +14,7 @@ func Totient(n uint64) uint64 {
 // that together with n form a coprime set of k + 1 integers.
 //
 // https://en.wikipedia.org/wiki/Jordan's_totient_function
+//
 // https://oeis.org/A007434 (k=2)
 func TotientK(n uint64, k uint64) uint64 {
 	J := math.Pow(float64(n), float64(k))

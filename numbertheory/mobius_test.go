@@ -5,6 +5,14 @@ import (
 	"testing"
 )
 
+func ExampleMobius() {
+	n := Mobius(70)
+	fmt.Printf("The möbius of 70 is %v.\n", n)
+
+	// Output:
+	// The möbius of 70 is -1.
+}
+
 func TestMobius(t *testing.T) {
 	compare := func(t *testing.T, a int8, b int8) {
 		if a != b {

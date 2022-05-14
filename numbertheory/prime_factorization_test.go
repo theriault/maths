@@ -5,6 +5,15 @@ import (
 	"testing"
 )
 
+func ExamplePrimeFactorization() {
+	var n uint64 = 51561510
+	r := PrimeFactorization(n)
+	fmt.Printf("The prime factorization of %v is %v.\n", n, r)
+
+	// Output:
+	// The prime factorization of 51561510 is [2 3 5 7 11 13 17 101].
+}
+
 func TestPrimeFactorization(t *testing.T) {
 	compare := func(t *testing.T, a []uint64, b []uint64) {
 		if len(a) != len(b) {

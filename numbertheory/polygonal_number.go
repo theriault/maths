@@ -5,20 +5,22 @@ import (
 	"math"
 )
 
-// Polygonal number
+// PolygonalNumber returns the nth s-gon number. If s < 3, it will return an error.
 //
 // https://en.wikipedia.org/wiki/Polygonal_number
-func PolygonalNumber(s uint64, n uint64) (uint64, error) {
+func PolygonalNumber[A Integer, B Integer](s A, n B) (uint64, error) {
 	if s < 3 {
 		return 0, fmt.Errorf("s must be >= 3")
 	}
-	return (s-2)*(n*(n-1))/2 + n, nil
+	si := uint64(s)
+	ni := uint64(n)
+	return (si-2)*(ni*(ni-1))/2 + ni, nil
 }
 
-// Polygonal root
+// PolygonalRoot returns the s-gonal root of x. Uf s < 3, it will return an error.
 //
 // https://en.wikipedia.org/wiki/Polygonal_number
-func PolygonalRoot(s uint64, x uint64) (float64, error) {
+func PolygonalRoot[A Integer, B Integer](s A, x B) (float64, error) {
 	if s < 3 {
 		return 0, fmt.Errorf("s must be >= 3")
 	}
@@ -27,9 +29,10 @@ func PolygonalRoot(s uint64, x uint64) (float64, error) {
 	return (math.Sqrt(8*s2*float64(x)+math.Pow(s4, 2)) + s4) / (2 * s2), nil
 }
 
-// Polygonal sides
+// PolygonalSides returns the number of sides that the nth polygonal number with
+// a value of x has.
 //
 // https://en.wikipedia.org/wiki/Polygonal_number
-func PolygonalSides(n uint64, x uint64) float64 {
-	return 2 + (2/float64(n))*float64(x-n)/float64(n-1)
+func PolygonalSides[A Integer, B Integer](n A, x B) float64 {
+	return 2 + (2/float64(n))*(float64(x)-float64(n))/float64(n-1)
 }

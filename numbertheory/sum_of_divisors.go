@@ -3,8 +3,9 @@ package numbertheory
 // Sum-of-divisors function sums the divisors of an integer.
 //
 // https://en.wikipedia.org/wiki/Divisor_function
+//
 // https://oeis.org/A000203
-func SumOfDivisors(n uint64) uint64 {
+func SumOfDivisors[A Integer](n A) uint64 {
 	if n == 0 {
 		return 0
 	}

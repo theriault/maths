@@ -4,16 +4,16 @@ import (
 	"math"
 )
 
-// Return the prime factorization of the given unsigned integer.
+// Return the prime factorization of the given integer.
 //
 // https://en.wikipedia.org/wiki/Integer_factorization
-func PrimeFactorization(n uint64) []uint64 {
+func PrimeFactorization[A Integer](n A) []uint64 {
 	factors := make([]uint64, 0)
 	if n <= 1 {
 		return factors
 	}
 
-	remainder := n
+	remainder := uint64(n)
 
 	for _, divisor := range []uint64{2, 3} {
 		for remainder%divisor == 0 {

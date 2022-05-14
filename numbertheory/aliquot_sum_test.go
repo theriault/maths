@@ -5,6 +5,14 @@ import (
 	"testing"
 )
 
+func ExampleAliquotSum() {
+	n := AliquotSum(60)
+	fmt.Printf("The aliquot sum of 60 is %v.\n", n)
+
+	// Output:
+	// The aliquot sum of 60 is 108.
+}
+
 func TestAliquotSum(t *testing.T) {
 	compare := func(t *testing.T, a uint64, b uint64) {
 		if a != b {

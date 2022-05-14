@@ -5,6 +5,14 @@ import (
 	"testing"
 )
 
+func ExampleSumOfDivisors() {
+	r := SumOfDivisors(60)
+	fmt.Printf("The sum-of-divisors of 60 is %v.\n", r)
+
+	// Output:
+	// The sum-of-divisors of 60 is 168.
+}
+
 func TestSumOfDivisors(t *testing.T) {
 	compare := func(t *testing.T, a uint64, b uint64) {
 		if a != b {

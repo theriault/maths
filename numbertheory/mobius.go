@@ -4,8 +4,9 @@ package numbertheory
 // factors, or 1 if n is square-free and has an even number of prime factors.
 //
 // https://en.wikipedia.org/wiki/Mobius_function
+//
 // https://oeis.org/A008683
-func Mobius(n uint64) int8 {
+func Mobius[A Integer](n A) int8 {
 	factors := PrimeFactorization(n)
 	last := uint64(1)
 	for _, p := range factors {

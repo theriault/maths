@@ -1,9 +1,12 @@
 # Maths
 
-Maths includes mathematical functions not defined in the standard Go
-math package.
+maths includes mathematical functions not defined in the standard Go math package.
 
 ## Number Theory
+
+```go
+import "github.com/theriault/maths/numbertheory"
+```
 
 ```go
 // Aliquot sum
