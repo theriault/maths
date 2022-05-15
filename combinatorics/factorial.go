@@ -1,6 +1,10 @@
 package combinatorics
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/theriault/maths"
+)
 
 var factorialMemoization [21]uint64 = [21]uint64{
 	1,                   // 0!
@@ -31,7 +35,7 @@ var factorialMemoization [21]uint64 = [21]uint64{
 // https://en.wikipedia.org/wiki/Factorial
 //
 // https://oeis.org/A000142
-func Factorial[A int | uint | int8 | uint8 | int16 | uint16 | int32 | uint32 | int64 | uint64](n A) (uint64, error) {
+func Factorial[A maths.Integer](n A) (uint64, error) {
 	if n < 0 {
 		return 0, fmt.Errorf("n must be >= 0")
 	}

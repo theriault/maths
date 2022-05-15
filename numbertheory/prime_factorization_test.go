@@ -46,6 +46,6 @@ func TestPrimeFactorization(t *testing.T) {
 
 func BenchmarkPrimeFactorization(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		PrimeFactorization(i)
+		PrimeFactorization(uint64(i))
 	}
 }

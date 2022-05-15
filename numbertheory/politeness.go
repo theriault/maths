@@ -1,12 +1,14 @@
 package numbertheory
 
+import "github.com/theriault/maths"
+
 // Politeness returns the number of ways n can be expressed as the sum of
 // consecutive numbers.
 //
 // https://en.wikipedia.org/wiki/Polite_number
 //
 // https://oeis.org/A069283
-func Politeness[A Integer](n A) uint64 {
+func Politeness[A maths.Integer](n A) uint64 {
 	factors := PrimeFactorization(n)
 	last := uint64(1)
 	exponent := uint64(1)

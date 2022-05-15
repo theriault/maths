@@ -1,11 +1,13 @@
 package numbertheory
 
+import "github.com/theriault/maths"
+
 // SumOfDivisors returns the sum of the divisors of n.
 //
 // https://en.wikipedia.org/wiki/Divisor_function
 //
 // https://oeis.org/A000203
-func SumOfDivisors[A Integer](n A) uint64 {
+func SumOfDivisors[A maths.Integer](n A) uint64 {
 	if n == 0 {
 		return 0
 	}

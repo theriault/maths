@@ -1,6 +1,10 @@
 package combinatorics
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/theriault/maths"
+)
 
 // FallingFactorial returns the number of ways of choosing an ordered list of length n consisting of distinct elements
 // drawn from a collection of size x. It is possible that the result may overflow.
@@ -8,10 +12,7 @@ import "fmt"
 // When x = n, this is the same as Factorial(x, n).
 //
 // https://en.wikipedia.org/wiki/Falling_and_rising_factorials
-func FallingFactorial[
-	A int | uint | int8 | uint8 | int16 | uint16 | int32 | uint32 | int64 | uint64,
-	B int | uint | int8 | uint8 | int16 | uint16 | int32 | uint32 | int64 | uint64,
-](x A, n B) (uint64, error) {
+func FallingFactorial[A maths.Integer, B maths.Integer](x A, n B) (uint64, error) {
 	if n < 0 {
 		return 0, fmt.Errorf("n must be >= 0")
 	}

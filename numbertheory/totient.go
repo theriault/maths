@@ -1,13 +1,17 @@
 package numbertheory
 
-import "math"
+import (
+	"math"
+
+	"github.com/theriault/maths"
+)
 
 // Totient (Euler's totient) returns the number of positive integers up to a given integer n that are relatively prime
 // to n.
 //
 // https://en.wikipedia.org/wiki/Euler's_totient_function
 // https://oeis.org/A000010
-func Totient[A Integer](n A) uint64 {
+func Totient[A maths.Integer](n A) uint64 {
 	return TotientK(n, 1)
 }
 
@@ -17,7 +21,7 @@ func Totient[A Integer](n A) uint64 {
 // https://en.wikipedia.org/wiki/Jordan's_totient_function
 //
 // https://oeis.org/A007434 (k=2)
-func TotientK[A Integer, B Integer](n A, k B) uint64 {
+func TotientK[A maths.Integer, B maths.Integer](n A, k B) uint64 {
 	J := math.Pow(float64(n), float64(k))
 	primes := PrimeFactorization(n)
 
