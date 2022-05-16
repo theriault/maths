@@ -74,3 +74,16 @@ numbertheory.Totient(68) // will return uint64(32)
 // Jordan's totient
 numbertheory.TotientK(60, 2) // will return uint64(2304)
 ```
+
+### Statistics
+
+```go
+import "github.com/theriault/maths/statistics"
+```
+
+```go
+// Means
+statistics.Mean(1, 1000) // will return float64(500.5)
+statistics.GeometricMean(1, 1000) // will return float64(31.62...)
+statistics.HarmonicMean(1, 1000) // will return float64(1.99...)
+```
