@@ -9,14 +9,6 @@ type Float interface {
 	~float32 | ~float64
 }
 
-type Floats interface {
-	~[]float32 | ~[]float64
-}
-
 type Complex interface {
 	~complex64 | ~complex128
-}
-
-type Complexes interface {
-	~[]complex64 | ~[]complex128
 }
