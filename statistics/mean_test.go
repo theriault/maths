@@ -2,7 +2,6 @@ package statistics
 
 import (
 	"fmt"
-	"math"
 	"testing"
 )
 
@@ -17,26 +16,30 @@ func ExampleMean() {
 func TestMean(t *testing.T) {
 	cases := []testArrayCase{
 		{
+			name:     "no numbers",
 			input:    []uint{},
-			expected: math.NaN(),
+			expected: "NaN",
 		},
 		{
+			name:     "two numbers",
 			input:    []uint{5, 15},
-			expected: 10,
+			expected: "10",
 		},
 		{
+			name:     "zero",
 			input:    []int{-5, 5},
-			expected: 0,
+			expected: "0",
 		},
 		{
+			name:     "floats",
 			input:    []float32{2.5, 4.5},
-			expected: 3.5,
+			expected: "3.5",
 		},
 	}
 
 	for _, c := range cases {
 		c := c
-		t.Run(fmt.Sprintf("test %v", c.input), func(t *testing.T) {
+		t.Run(c.name, func(t *testing.T) {
 			t.Parallel()
 			var actual float64
 			switch c.input.(type) {
@@ -47,23 +50,18 @@ func TestMean(t *testing.T) {
 			case []float32:
 				actual = Mean(c.input.([]float32)...)
 			}
-			if math.IsNaN(c.expected) {
-				if !math.IsNaN(actual) {
-					t.Logf("expected %v, got %v", c.expected, actual)
-					t.FailNow()
-				}
-			} else {
-				if actual != c.expected {
-					t.Logf("expected %v, got %v", c.expected, actual)
-					t.FailNow()
-				}
+			if fmt.Sprintf("%v", actual) != c.expected {
+				t.Logf("expected %v, got %v", c.expected, actual)
+				t.FailNow()
 			}
 		})
 	}
 }
 
+var testMeanVals []uint = make([]uint, 1000)
+
 func BenchmarkMean(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Mean(i, i-5, i+3, i-8)
+		Mean(testMeanVals...)
 	}
 }

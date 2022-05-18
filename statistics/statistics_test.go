@@ -1,6 +1,8 @@
 package statistics
 
 type testArrayCase struct {
+	name     string
 	input    any
-	expected float64
+	expected string
+	err      string
 }

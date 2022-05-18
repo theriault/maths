@@ -2,7 +2,6 @@ package statistics
 
 import (
 	"fmt"
-	"math"
 	"testing"
 )
 
@@ -17,50 +16,55 @@ func ExampleHarmonicMean() {
 func TestHarmonicMean(t *testing.T) {
 	cases := []testArrayCase{
 		{
+			name:     "no numbers",
 			input:    []uint{},
-			expected: math.NaN(),
+			expected: "NaN",
 		},
 		{
+			name:     "negatives",
 			input:    []int{-10, -20},
-			expected: math.NaN(),
+			expected: "NaN",
 		},
 		{
+			name:     "two numbers",
 			input:    []uint{5, 15},
-			expected: 7.5,
+			expected: "7.5",
 		},
 		{
+			name:     "zero",
 			input:    []int{-5, 5},
-			expected: math.NaN(),
+			expected: "NaN",
 		},
 		{
+			name:     "floats",
 			input:    []float32{2.5, 4.5},
-			expected: 3.2142857142857144,
+			expected: "3.2142857142857144",
+		},
+		{
+			name:     "large numbers",
+			input:    []uint64{1, 4294967295, 18446744073709551615},
+			expected: "2.999999999301508",
 		},
 	}
 
 	for _, c := range cases {
 		c := c
-		t.Run(fmt.Sprintf("test %v", c.input), func(t *testing.T) {
+		t.Run(c.name, func(t *testing.T) {
 			t.Parallel()
 			var actual float64
 			switch c.input.(type) {
 			case []uint:
 				actual = HarmonicMean(c.input.([]uint)...)
+			case []uint64:
+				actual = HarmonicMean(c.input.([]uint64)...)
 			case []int:
 				actual = HarmonicMean(c.input.([]int)...)
 			case []float32:
 				actual = HarmonicMean(c.input.([]float32)...)
 			}
-			if math.IsNaN(c.expected) {
-				if !math.IsNaN(actual) {
-					t.Logf("expected %v, got %v", c.expected, actual)
-					t.FailNow()
-				}
-			} else {
-				if actual != c.expected {
-					t.Logf("expected %v, got %v", c.expected, actual)
-					t.FailNow()
-				}
+			if fmt.Sprintf("%v", actual) != c.expected {
+				t.Logf("expected %v, got %v", c.expected, actual)
+				t.FailNow()
 			}
 		})
 	}

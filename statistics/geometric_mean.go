@@ -15,18 +15,19 @@ import (
 //
 // https://en.wikipedia.org/wiki/Geometric_mean
 func GeometricMean[A maths.Integer | maths.Float](numbers ...A) float64 {
-	if len(numbers) == 0 {
+	l := float64(len(numbers))
+	if l == 0 {
 		return math.NaN()
 	}
-	product := float64(1)
+	sum := float64(0)
 	for _, n := range numbers {
 		if n == 0 {
 			return 0
 		}
-		product *= float64(n)
+		if n < 0 {
+			return math.NaN()
+		}
+		sum += math.Log2(float64(n))
 	}
-	if product < 0 {
-		return math.NaN()
-	}
-	return math.Pow(product, 1/float64(len(numbers)))
+	return math.Exp2(1 / l * sum)
 }
