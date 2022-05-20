@@ -20,19 +20,45 @@ go get github.com/theriault/maths
 import "github.com/theriault/maths/combinatorics"
 ```
 
-```go
-// Factorial: n!
-combinatorics.Factorial(10) // will return uint64(3628800)
+#### Factorial
 
-// Falling factorial + partial permutations
+[Wikipedia](https://en.wikipedia.org/wiki/Factorial) | [OEIS](https://oeis.org/A000142) | [Source](/combinatorics/factorial.go) | [Tests](/combinatorics/factorial_test.go)
+
+$\displaystyle n! \\; = \\; \prod_{i=1}^{n} i$
+
+```go
+combinatorics.Factorial(10) // will return uint64(3628800)
+```
+
+#### Falling Factorial
+
+[Wikipedia](https://en.wikipedia.org/wiki/Falling_and_rising_factorials) | [Source](/combinatorics/falling_factorial.go) | [Tests](/combinatorics/falling_factorial_test.go)
+
+$ \displaystyle x^{\underline{n}} \\; = \\; \prod _{k=1}^{n}(x-k+1) $
+
+```go
 combinatorics.FallingFactorial(8, 3) // will return uint64(336)
 combinatorics.PartialPermutations(8, 3) // will return uint64(336)
+```
 
-// Primorial
-combinatorics.Primorial(30) // will return uint64(6469693230)
+#### Rising Factorial
 
-// Rising factorial
+[Wikipedia](https://en.wikipedia.org/wiki/Falling_and_rising_factorials) | [Source](/combinatorics/rising_factorial.go) | [Tests](/combinatorics/rising_factorial_test.go)
+
+$ \displaystyle x^{\overline{n}} \\; = \\; \prod _{k=1}^{n}(x+k-1) $
+
+```go
 combinatorics.RisingFactorial(2, 3) // will return uint64(24)
+```
+
+#### Primorial
+
+[Wikipedia](https://en.wikipedia.org/wiki/Primorial) | [OEIS](https://oeis.org/A002110) | [Source](/combinatorics/primorial.go) | [Tests](/combinatorics/primorial_test.go)
+
+$ \displaystyle n\\# \\; = \\; \prod_{\substack{i=2 \\\\ i \in \mathbb{P}}}^{n} i $
+
+```go
+combinatorics.Primorial(30) // will return uint64(6469693230)
 ```
 
 ### Number Theory
