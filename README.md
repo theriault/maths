@@ -191,29 +191,100 @@ numbertheory.TotientK(60, 2) // will return uint64(2304)
 import "github.com/theriault/maths/statistics"
 ```
 
+#### Average/Mean
+
+##### Arithmetic Mean
+
+[Source](/statistics/mean.go) | [Tests](/statistics/mean_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Mean#Arithmetic_mean_(AM))
+
+$ \displaystyle \bar{x} = \frac{1}{n}\left (\sum_{i=1}^n{x_i}\right ) = \frac{x_1+x_2+\cdots +x_n}{n} $
+
 ```go
-// Min/Max/Range
-n := []uint8{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-statistics.Min(n...) // will return uint8(1)
-statistics.Max(n...) // will return uint8(10)
-statistics.Range(n...) // will return uint8(9)
-
-// Sum
-statistics.Sum(1.1, 1.2, 1.3) // will return float64(3.6)
-
-// Mode
-statistics.Mode(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
-
-// Means
 statistics.Mean(1, 1000) // will return float64(500.5)
-statistics.GeometricMean(1, 1000) // will return float64(31.62...)
-statistics.HarmonicMean(1, 1000) // will return float64(1.99...)
+```
 
-// Median/Tertile/Quantile/.../Percentile
+##### Geometric Mean
+
+[Source](/statistics/geometric_mean.go) | [Tests](/statistics/geometric_mean_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Mean#Geometric_mean_(GM))
+
+$ \displaystyle \bar{x} = \left( \prod_{i=1}^n{x_i} \right )^\frac{1}{n} = \exp{\left( {\frac{1}{n}\sum\limits_{i=1}^{n}\ln x_i} \right)} = \left(x_1 x_2 \cdots x_n \right)^\frac{1}{n} $
+
+```go
+statistics.GeometricMean(1, 1000) // will return float64(31.62...)
+```
+
+##### Harmonic Mean
+
+[Source](/statistics/harmonic_mean.go) | [Tests](/statistics/harmonic_mean_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Mean#Harmonic_mean_(HM))
+
+$ \displaystyle \bar{x} = n \left ( \sum_{i=1}^n \frac{1}{x_i} \right ) ^{-1} $
+
+```go
+statistics.HarmonicMean(1, 1000) // will return float64(1.99...)
+```
+
+#### Mode
+
+[Source](/statistics/mode.go) | [Tests](/statistics/mode_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Mode_(statistics))
+
+```go
+statistics.Mode(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
+```
+
+#### Quantiles (Median/Tertile/Quartile/.../Percentile)
+
+[Source](/statistics/quantile.go) | [Tests](/statistics/quantile_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Quantile)
+
+```go
 n := []float64{3, 6, 7, 8, 8, 10, 13, 15, 16, 20}
-statistics.Median(n) // will return float64(9)
 statistics.Quantile(n, 2) // median: will return []float64{9}
 statistics.Quantile(n, 3) // tertiles: will return []float64{8, 13}
 statistics.Quantile(n, 4) // quartiles: will return []float64{7.25, 9, 14.5}
 statistics.Quantile(n, 100) // percentile: will return []float64{3.27, 3.54, 3.81, 4.08, ...95 other values...}
+```
+
+Median ([Source](/statistics/median.go) | [Tests](/statistics/median_test.go))
+
+```go
+statistics.Median(n) // will return float64(9)
+```
+
+#### Sample Extrema (Max/Min/Range)
+
+[Wikipedia](https://en.wikipedia.org/wiki/Sample_maximum_and_minimum)
+
+```go
+n := []uint8{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+```
+
+##### Sample Maximum / Largest Observation
+
+[Source](/statistics/max.go) | [Tests](/statistics/max_test.go)
+
+```go
+statistics.Max(n...) // will return uint8(10)
+```
+
+##### Sample Minimum / Smallest Observation
+
+[Source](/statistics/min.go) | [Tests](/statistics/min_test.go)
+
+```go
+statistics.Min(n...) // will return uint8(1)
+```
+
+##### Range
+
+[Source](/statistics/range.go) | [Tests](/statistics/range_test.go)
+
+```go
+statistics.Range(n...) // will return uint8(9)
+```
+
+#### Summation
+
+[Source](/statistics/sum.go) | [Tests](/statistics/sum_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Summation)
+
+```go
+statistics.Sum(1.1, 1.2, 1.3) // will return float64(3.6)
 ```
