@@ -61,7 +61,7 @@ import "github.com/theriault/maths/numbertheory"
 
 [Source](/numbertheory/aliquot_sum.go) | [Tests](/numbertheory/aliquot_sum_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Aliquot_sum) | [OEIS](https://oeis.org/A001065)
 
-$ \displaystyle s(n) = \sum_{\substack{i = 1 \\\\ i | n}}^{n-1} i $
+$ \displaystyle s(n) = \sigma_1(n) - n = \sum_{\substack{i = 1 \\\\ i | n}}^{n-1} i $
 
 ```go
 numbertheory.AliquotSum(60) // will return uint64(108)
