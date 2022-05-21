@@ -61,7 +61,7 @@ import "github.com/theriault/maths/numbertheory"
 
 [Source](/numbertheory/aliquot_sum.go) | [Tests](/numbertheory/aliquot_sum_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Aliquot_sum) | [OEIS](https://oeis.org/A001065)
 
-$ \displaystyle s(n) = \sum_{\substack{i = 1 \\ i | n}}^{n-1} i $
+$ \displaystyle s(n) = \sum_{\substack{i = 1 \\\\ i | n}}^{n-1} i $
 
 ```go
 numbertheory.AliquotSum(60) // will return uint64(108)
@@ -69,7 +69,7 @@ numbertheory.AliquotSum(60) // will return uint64(108)
 
 #### Divisors function
 
-$ \displaystyle \sigma_z(n) = \sum_{\substack{i = 1 \\ i | n}}^{n} i^{z} $
+$ \displaystyle \sigma_z(n) = \sum_{\substack{i = 1 \\\\ i | n}}^{n} i^{z} $
 
 ##### Number-of-divisors (z = 0)
 
@@ -91,7 +91,7 @@ numbertheory.SumOfDivisors(48) // will return uint64(124)
 
 [Source](/numbertheory/mobius.go) | [Tests](/numbertheory/mobius_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Mobius_function) | [OEIS](https://oeis.org/A008683)
 
-$ \displaystyle \mu(n) = \begin{cases} +1 & n \text{ is square-free with even number of prime factors} \\ -1 & n \text{ is square-free with odd number of prime factors} \\ 0 & n \text{ is not square-free} \end{cases} $
+$ \displaystyle \mu(n) = \begin{cases} +1 & n \text{ is square-free with even number of prime factors} \\\\ -1 & n \text{ is square-free with odd number of prime factors} \\\\ 0 & n \text{ is not square-free} \end{cases} $
 
 ```go
 numbertheory.Mobius(70) // will return int8(-1)
@@ -101,7 +101,7 @@ numbertheory.Mobius(70) // will return int8(-1)
 
 [Source](/numbertheory/politeness.go) | [Tests](/numbertheory/politeness_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Polite_number) | [OEIS](https://oeis.org/A069283)
 
-$ \displaystyle p(n) = \left( \prod_{\substack{p |n \\ p \neq 2}}^{n} v_p(n) + 1\right)-1 $
+$ \displaystyle p(n) = \left( \prod_{\substack{p |n \\\\ p \neq 2}}^{n} v_p(n) + 1\right)-1 $
 
 where $v_p(n)$ is the [$p$-adic order](https://en.wikipedia.org/wiki/P-adic_order#Integers)
 
