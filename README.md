@@ -243,41 +243,39 @@ statistics.Quantile(n, 4) // quartiles: will return []float64{7.25, 9, 14.5}
 statistics.Quantile(n, 100) // percentile: will return []float64{3.27, 3.54, 3.81, 4.08, ...95 other values...}
 ```
 
-Median ([Source](/statistics/median.go) | [Tests](/statistics/median_test.go))
+Median ([Source](/statistics/median.go) | [Tests](/statistics/median_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Median))
 
 ```go
+n := []float64{3, 6, 7, 8, 8, 10, 13, 15, 16, 20}
 statistics.Median(n) // will return float64(9)
 ```
 
 #### Sample Extrema (Max/Min/Range)
 
-[Wikipedia](https://en.wikipedia.org/wiki/Sample_maximum_and_minimum)
+##### Sample Maximum / Largest Observation
+
+[Source](/statistics/max.go) | [Tests](/statistics/max_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Sample_maximum_and_minimum)
 
 ```go
 n := []uint8{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-```
-
-##### Sample Maximum / Largest Observation
-
-[Source](/statistics/max.go) | [Tests](/statistics/max_test.go)
-
-```go
 statistics.Max(n...) // will return uint8(10)
 ```
 
 ##### Sample Minimum / Smallest Observation
 
-[Source](/statistics/min.go) | [Tests](/statistics/min_test.go)
+[Source](/statistics/min.go) | [Tests](/statistics/min_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Sample_maximum_and_minimum)
 
 ```go
+n := []uint8{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 statistics.Min(n...) // will return uint8(1)
 ```
 
 ##### Range
 
-[Source](/statistics/range.go) | [Tests](/statistics/range_test.go)
+[Source](/statistics/range.go) | [Tests](/statistics/range_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Range_(statistics))
 
 ```go
+n := []uint8{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 statistics.Range(n...) // will return uint8(9)
 ```
 
