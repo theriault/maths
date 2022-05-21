@@ -1,4 +1,4 @@
-package combinatorics
+package numbertheory
 
 import (
 	"fmt"

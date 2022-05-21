@@ -22,7 +22,7 @@ import "github.com/theriault/maths/combinatorics"
 
 #### Factorial
 
-[Wikipedia](https://en.wikipedia.org/wiki/Factorial) | [OEIS](https://oeis.org/A000142) | [Source](/combinatorics/factorial.go) | [Tests](/combinatorics/factorial_test.go)
+[Source](/combinatorics/factorial.go) | [Tests](/combinatorics/factorial_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Factorial) | [OEIS](https://oeis.org/A000142)
 
 $\displaystyle n! \\; = \\; \prod_{i=1}^{n} i$
 
@@ -32,7 +32,7 @@ combinatorics.Factorial(10) // will return uint64(3628800)
 
 #### Falling Factorial
 
-[Wikipedia](https://en.wikipedia.org/wiki/Falling_and_rising_factorials) | [Source](/combinatorics/falling_factorial.go) | [Tests](/combinatorics/falling_factorial_test.go)
+[Source](/combinatorics/falling_factorial.go) | [Tests](/combinatorics/falling_factorial_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Falling_and_rising_factorials)
 
 $ \displaystyle x^{\underline{n}} \\; = \\; \prod _{k=1}^{n}(x-k+1) $
 
@@ -43,22 +43,12 @@ combinatorics.PartialPermutations(8, 3) // will return uint64(336)
 
 #### Rising Factorial
 
-[Wikipedia](https://en.wikipedia.org/wiki/Falling_and_rising_factorials) | [Source](/combinatorics/rising_factorial.go) | [Tests](/combinatorics/rising_factorial_test.go)
+[Source](/combinatorics/rising_factorial.go) | [Tests](/combinatorics/rising_factorial_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Falling_and_rising_factorials)
 
 $ \displaystyle x^{\overline{n}} \\; = \\; \prod _{k=1}^{n}(x+k-1) $
 
 ```go
 combinatorics.RisingFactorial(2, 3) // will return uint64(24)
-```
-
-#### Primorial
-
-[Wikipedia](https://en.wikipedia.org/wiki/Primorial) | [OEIS](https://oeis.org/A002110) | [Source](/combinatorics/primorial.go) | [Tests](/combinatorics/primorial_test.go)
-
-$ \displaystyle n\\# \\; = \\; \prod_{\substack{i=2 \\\\ i \in \mathbb{P}}}^{n} i $
-
-```go
-combinatorics.Primorial(30) // will return uint64(6469693230)
 ```
 
 ### Number Theory
@@ -67,37 +57,131 @@ combinatorics.Primorial(30) // will return uint64(6469693230)
 import "github.com/theriault/maths/numbertheory"
 ```
 
+#### Aliquot Sum
+
+[Source](/numbertheory/aliquot_sum.go) | [Tests](/numbertheory/aliquot_sum_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Aliquot_sum) | [OEIS](https://oeis.org/A001065)
+
+$ \displaystyle s(n) = \sum_{\substack{i = 1 \\ i | n}}^{n-1} i $
+
 ```go
-// Aliquot sum
 numbertheory.AliquotSum(60) // will return uint64(108)
+```
 
-// Möbius function
-numbertheory.Mobius(70) // will return int8(-1)
+#### Divisors function
 
-// Number of divisors
+$ \displaystyle \sigma_z(n) = \sum_{\substack{i = 1 \\ i | n}}^{n} i^{z} $
+
+##### Number-of-divisors (z = 0)
+
+[Source](/numbertheory/number_of_divisors.go) | [Tests](/numbertheory/number_of_divisors_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Divisor_function) | [OEIS](https://oeis.org/A000005)
+
+```go
 numbertheory.NumberOfDivisors(48) // will return uint64(10)
+```
 
-// Politeness
+##### Sum-of-divisors (z = 1)
+
+[Source](/numbertheory/sum_of_divisors.go) | [Tests](/numbertheory/sum_of_divisors_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Divisor_function) | [OEIS](https://oeis.org/A000203)
+
+```go
+numbertheory.SumOfDivisors(48) // will return uint64(124)
+```
+
+#### Möbius function
+
+[Source](/numbertheory/mobius.go) | [Tests](/numbertheory/mobius_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Mobius_function) | [OEIS](https://oeis.org/A008683)
+
+$ \displaystyle \mu(n) = \begin{cases} +1 & n \text{ is square-free with even number of prime factors} \\ -1 & n \text{ is square-free with odd number of prime factors} \\ 0 & n \text{ is not square-free} \end{cases} $
+
+```go
+numbertheory.Mobius(70) // will return int8(-1)
+```
+
+#### Politeness
+
+[Source](/numbertheory/politeness.go) | [Tests](/numbertheory/politeness_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Polite_number) | [OEIS](https://oeis.org/A069283)
+
+$ \displaystyle p(n) = \left( \prod_{\substack{p |n \\ p \neq 2}}^{n} v_p(n) + 1\right)-1 $
+
+where $v_p(n)$ is the [$p$-adic order](https://en.wikipedia.org/wiki/P-adic_order#Integers)
+
+```go
 numbertheory.Politeness(32) // will return uint64(0)
+```
 
-// Polygonal numbers
+#### Polygonal Numbers
+
+[Source](/numbertheory/polygonal_number.go) | [Tests](/numbertheory/polygonal_number_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Polygonal_number)
+
+$\displaystyle p(s, n) = \frac{(s-2)n^2-(s-4)n}{2}$ 
+
+```go
 numbertheory.PolygonalNumber(3, 4) // will return uint64(10)
+```
+
+Finding $n$:
+
+$\displaystyle p(s, x) = \frac{\sqrt{8(s-2)x+(s-4)^2}+(s-4)}{2(s-2)}$
+
+```go
 numbertheory.PolygonalRoot(3, 10) // will return float64(4)
+```
+
+Finding $s$:
+
+$\displaystyle p(n, x) = 2+\frac{2}{n} \cdot \frac{x-n}{n-1}$
+
+```go
 numbertheory.PolygonalSides(4, 10) // will return float64(3)
+```
 
-// Prime factorize any uint64
+#### Prime Factorization
+
+[Source](/numbertheory/prime_factorization.go) | [Tests](/numbertheory/prime_factorization_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Integer_factorization)
+
+```go
 numbertheory.PrimeFactorization(184756) // will return []uint64{2, 2, 11, 13, 17, 19}
+```
 
-// Radical
+#### Primorial
+
+[Source](/numbertheory/primorial.go) | [Tests](/numbertheory/primorial_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Primorial) | [OEIS](https://oeis.org/A002110)
+
+$ \displaystyle n\\# = \prod_{\substack{i=2 \\\\ i \in \mathbb{P}}}^{n} i $
+
+```go
+numbertheory.Primorial(30) // will return uint64(6469693230)
+```
+
+#### Radical
+
+[Source](/numbertheory/radical.go) | [Tests](/numbertheory/radical_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Radical_of_an_integer) | [OEIS](https://oeis.org/A007947)
+
+$ \displaystyle rad(n) = \prod_{p | n}p $
+
+```go
 numbertheory.Radical(60) // will return uint64(30)
+```
 
-// Sum of divisors
-numbertheory.SumOfDivisors(48) // will return uint64(10)
+#### Totient
 
-// Euler's totient
+##### Euler's Totient
+
+[Source](/numbertheory/totient.go) | [Tests](/numbertheory/totient_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Euler's_totient_function) | [OEIS](https://oeis.org/A000010)
+
+$\displaystyle \varphi(n) = n \prod_{p | n} \left(1 - \frac{1}{p}\right) $ 
+
+```go
 numbertheory.Totient(68) // will return uint64(32)
+```
 
-// Jordan's totient
+##### Jordan's Totient
+
+[Source](/numbertheory/totient.go) | [Tests](/numbertheory/totient_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Jordan's_totient_function)
+
+$\displaystyle J_k(n) = n^k \prod_{p | n} \left(1 - \frac{1}{p^k}\right) $ 
+
+```go
 numbertheory.TotientK(60, 2) // will return uint64(2304)
 ```
 

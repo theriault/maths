@@ -10,6 +10,7 @@ import (
 // to n.
 //
 // https://en.wikipedia.org/wiki/Euler's_totient_function
+//
 // https://oeis.org/A000010
 func Totient[A maths.Integer](n A) uint64 {
 	return TotientK(n, 1)
