@@ -21,7 +21,7 @@ func TestAliquotSum(t *testing.T) {
 		}
 	}
 	cases := map[uint64]uint64{
-		1:  1,
+		1:  0,
 		11: 1,
 		18: 21,
 		42: 54,
