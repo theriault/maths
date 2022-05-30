@@ -15,9 +15,5 @@ func Mean[A maths.Integer | maths.Float](numbers ...A) float64 {
 	if len(numbers) == 0 {
 		return math.NaN()
 	}
-	sum := float64(0)
-	for _, n := range numbers {
-		sum += float64(n)
-	}
-	return sum / float64(len(numbers))
+	return Sum(numbers...) / float64(len(numbers))
 }

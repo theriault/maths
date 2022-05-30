@@ -59,9 +59,3 @@ func BenchmarkSum(b *testing.B) {
 		Sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
 	}
 }
-
-/*
-func testFloatEqual(actual float64, expected float64) bool {
-	return actual == expected || actual > math.Nextafter(expected, expected+1) || actual < math.Nextafter(expected, expected-1)
-}
-*/

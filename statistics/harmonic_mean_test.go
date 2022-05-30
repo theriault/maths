@@ -23,7 +23,7 @@ func TestHarmonicMean(t *testing.T) {
 		{
 			name:     "negatives",
 			input:    []int{-10, -20},
-			expected: "NaN",
+			expected: "-13.333333333333332",
 		},
 		{
 			name:     "two numbers",

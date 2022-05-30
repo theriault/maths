@@ -8,10 +8,10 @@ import (
 // Nullary invocation returns the additive identity (0).
 //
 // https://en.wikipedia.org/wiki/Summation
-func Sum[A maths.Integer | maths.Float](numbers ...A) float64 {
-	sum := float64(0)
-	for _, v := range numbers {
-		sum += float64(v)
+func Sum[A maths.Integer | maths.Float](X ...A) float64 {
+	s := float64(0)
+	for _, x := range X {
+		s += float64(x)
 	}
-	return sum
+	return s
 }

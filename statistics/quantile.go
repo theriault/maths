@@ -39,3 +39,18 @@ func Quantile[A maths.Integer | maths.Float](numbers []A, q int) ([]float64, err
 	}
 	return quantiles, nil
 }
+
+// Tertile is an alias for Quantile(X, 3)
+func Tertile[A maths.Integer | maths.Float](X []A) ([]float64, error) {
+	return Quantile(X, 3)
+}
+
+// Quartile is an alias for Quantile(X, 4)
+func Quartile[A maths.Integer | maths.Float](X []A) ([]float64, error) {
+	return Quantile(X, 4)
+}
+
+// Percentile is an alias for Quantile(X, 100)
+func Percentile[A maths.Integer | maths.Float](X []A) ([]float64, error) {
+	return Quantile(X, 100)
+}

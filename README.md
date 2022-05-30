@@ -193,6 +193,15 @@ import "github.com/theriault/maths/statistics"
 
 #### Average/Mean
 
+##### Generalized Mean
+
+[Source](/statistics/generalized_mean.go) | [Tests](/statistics/generalized_mean_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Generalized_mean)
+
+```go
+statistics.GeneralizedMean([]float64{1, 1000}, 2) // will return float64(707.1071347398497)
+statistics.RootMeanSquare(1, 1000)  // will return float64(707.1071347398497)
+```
+
 ##### Arithmetic Mean
 
 [Source](/statistics/mean.go) | [Tests](/statistics/mean_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Mean#Arithmetic_mean_(AM))
@@ -223,12 +232,91 @@ $ \displaystyle \bar{x} = n \left ( \sum_{i=1}^n \frac{1}{x_i} \right ) ^{-1} $
 statistics.HarmonicMean(1, 1000) // will return float64(1.99...)
 ```
 
+#### Central Moment
+
+[Source](/statistics/central_moment.go) | [Tests](/statistics/central_moment_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Central_moment)
+
+```go
+statistics.CentralMoment([]uint8{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 2) // returns float64(8.25)
+```
+
+#### Interquartile Range (IQR)
+
+[Source](/statistics/interquartile_range.go) | [Tests](/statistics/interquartile_range_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Interquartile_range)
+
+```go
+statistics.InterquartileRange(3, 6, 7, 8, 8, 10, 13, 15, 16, 20) // returns float64(7.25)
+```
+
+#### Kurtosis
+
+##### Population
+
+[Source](/statistics/kurtosis.go) | [Tests](/statistics/kurtosis_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Kurtosis)
+
+```go
+statistics.Kurtosis(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // returns float64(1.5133)
+```
+
+##### Sample
+
+[Source](/statistics/sample_kurtosis.go) | [Tests](/statistics/sample_kurtosis_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Kurtosis)
+
+```go
+statistics.SampleKurtosis(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // returns float64(2.522167)
+```
+
+##### Excess Sample Kurtosis
+
+[Source](/statistics/excess_sample_kurtosis.go) | [Tests](/statistics/excess_sample_kurtosis_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Kurtosis)
+
+```go
+statistics.ExcessSampleKurtosis([]uint8{8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8}) // returns float64(-1.6445)
+```
+
+#### Logistic Function
+
+[Source](/statistics/logistic_function.go) | [Tests](/statistics/logistic_function_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Logistic_function)
+
+$ \displaystyle f(x) = \frac{L}{1+e^{-k(x-x_0)}}$
+
+- $L$ - curve's max value
+- $x_0$ - sigmoid's midpoint
+- $k$ - logistic growth rate
+
+```go
+maxValue := 1.0
+midpoint := 0.0
+growthRate := 1.0
+fx := statistics.LogisticFunction(maxValue, midpoint, growthRate) // will return func (x float64) float64
+```
+
 #### Mode
 
 [Source](/statistics/mode.go) | [Tests](/statistics/mode_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Mode_(statistics))
 
 ```go
 statistics.Mode(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
+```
+
+#### Power Sum
+
+[Source](/statistics/power_sum.go) | [Tests](/statistics/power_sum_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Sums_of_powers)
+
+$ \displaystyle S_p(x_1, x_2, ..., x_n) = \sum_{i=1}^{n} x_i^p $
+
+```go
+statistics.PowerSum([]float64{2, 3, 4}, 2) // will return float64(29)
+```
+
+#### Power Sum Around
+
+[Source](/statistics/power_sum_around.go) | [Wikipedia](https://en.wikipedia.org/wiki/Sums_of_powers)
+
+$ \displaystyle S_{p,y}(x_1, x_2, ..., x_n) = \sum_{i=1}^{n} (x_i - y)^p $
+
+```go
+statistics.PowerSumAround([]float64{2, 3, 4}, 3, 2) // will return float64(29)
 ```
 
 #### Quantiles (Median/Tertile/Quartile/.../Percentile)
@@ -241,6 +329,11 @@ statistics.Quantile(n, 2) // median: will return []float64{9}
 statistics.Quantile(n, 3) // tertiles: will return []float64{8, 13}
 statistics.Quantile(n, 4) // quartiles: will return []float64{7.25, 9, 14.5}
 statistics.Quantile(n, 100) // percentile: will return []float64{3.27, 3.54, 3.81, 4.08, ...95 other values...}
+
+// aliases
+statistics.Tertile(n) // will return []float64{8, 13}
+statistics.Quartile(n) // will return []float64{7.25, 9, 14.5}
+statistics.Percentile(n) // will return []float64{3.27, 3.54, 3.81, 4.08, ...95 other values...}
 ```
 
 Median ([Source](/statistics/median.go) | [Tests](/statistics/median_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Median))
@@ -279,10 +372,138 @@ n := []uint8{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 statistics.Range(n...) // will return uint8(9)
 ```
 
-#### Summation
+#### Skewness
+
+##### Population
+
+[Source](/statistics/skewness.go) | [Tests](/statistics/skewness_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Skewness)
+
+```go
+statistics.Skewness(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // returns float64(-0.274241)
+```
+
+##### Sample
+
+[Source](/statistics/sample_skewness.go) | [Tests](/statistics/sample_skewness_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Skewness)
+
+```go
+statistics.SampleSkewness(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // returns float64(-0.319584)
+```
+
+#### Standard Deviation
+
+##### Population
+
+[Source](/statistics/standard_deviation.go) | [Tests](/statistics/standard_deviation_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation)
+
+$ \displaystyle \sigma = \sqrt{\left(\frac{1}{N} \sum_{i=1}^{N} x_{i}^{2} \right) - \mu^2}$
+
+```go
+statistics.StandardDeviation(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
+```
+
+##### Sample
+
+[Source](/statistics/sample_standard_deviation.go) | [Tests](/statistics/sample_standard_deviation_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation)
+
+$ \displaystyle s = \sqrt{\sigma^2 \frac{N}{N-1}}$
+
+```go
+statistics.SampleStandardDeviation(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
+```
+
+#### Standard Error
+
+##### Population
+
+[Source](/statistics/standard_error.go) | [Tests](/statistics/standard_error_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Standard_error)
+
+$ \displaystyle \sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}$
+
+```go
+statistics.StandardError(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
+```
+
+##### Sample
+
+[Source](/statistics/sample_standard_error.go) | [Tests](/statistics/sample_standard_error_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Standard_error)
+
+$ \displaystyle s_{\bar{x}} = \frac{s}{\sqrt{n}}$
+
+```go
+statistics.SampleStandardError(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
+```
+
+#### Sum/Summation
 
 [Source](/statistics/sum.go) | [Tests](/statistics/sum_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Summation)
 
+$ \displaystyle S(x_1, x_2, ..., x_n) = \sum_{i=1}^{n} x_i $
+
 ```go
 statistics.Sum(1.1, 1.2, 1.3) // will return float64(3.6)
+```
+
+#### Variance
+
+##### Population
+
+[Source](/statistics/variance.go) | [Tests](/statistics/variance_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Variance)
+
+$ \displaystyle \sigma^2 = \left(\frac{1}{N} \sum_{i=1}^{N} x_{i}^{2} \right) - \mu^2$
+
+```go
+statistics.Variance(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
+```
+
+##### Sample
+
+[Source](/statistics/sample_variance.go) | [Tests](/statistics/sample_variance_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Variance)
+
+$ \displaystyle s^2 = \sigma^2 \frac{N}{N-1}$
+
+```go
+statistics.SampleVariance(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
+```
+
+#### Weighted Average/Mean
+
+##### Weighted Generalized Mean
+
+[Source](/statistics/weighted_generalized_mean.go) | [Tests](/statistics/weighted_generalized_mean_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Generalized_mean)
+
+```go
+X := []uint8{8, 7, 3, 2, 6, 11, 6, 7, 2, 1, 7}
+W := []uint8{1, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2}
+mean, err := statistics.WeightedGeneralizedMean(X, Y, 1) // will return float64(5.5)
+```
+
+##### Weighted Arithmetic Mean
+
+[Source](/statistics/weighted_generalized_mean.go) | [Tests](/statistics/weighted_generalized_mean_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Generalized_mean)
+
+```go
+X := []uint8{8, 7, 3, 2, 6, 11, 6, 7, 2, 1, 7}
+W := []uint8{1, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2}
+mean, err := statistics.WeightedMean(X, Y) // will return float64(5.5)
+```
+
+##### Weighted Geometric Mean
+
+[Source](/statistics/weighted_generalized_mean.go) | [Tests](/statistics/weighted_generalized_mean_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Generalized_mean)
+
+```go
+X := []uint8{8, 7, 3, 2, 6, 11, 6, 7, 2, 1, 7}
+W := []uint8{1, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2}
+mean, err := statistics.WeightedGeometricMean(X, Y) // will return float64(4.6)
+```
+
+##### Weighted Harmonic Mean
+
+[Source](/statistics/weighted_generalized_mean.go) | [Tests](/statistics/weighted_generalized_mean_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Generalized_mean)
+
+```go
+X := []uint8{8, 7, 3, 2, 6, 11, 6, 7, 2, 1, 7}
+W := []uint8{1, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2}
+mean, err := statistics.WeightedHarmonicMean(X, Y) // will return float64(5.8)
 ```
