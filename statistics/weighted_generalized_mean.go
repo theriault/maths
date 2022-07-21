@@ -41,7 +41,7 @@ func WeightedGeneralizedMean[A maths.Integer | maths.Float, B maths.Integer | ma
 		}
 		return min * minWeight, nil
 	}
-	// as p approaches postive infinity, the general mean equals the maximum
+	// as p approaches positive infinity, the general mean equals the maximum
 	if p == math.Inf(+1) {
 		max := float64(X[0])
 		maxWeight := float64(W[0])
