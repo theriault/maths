@@ -18,7 +18,7 @@ func GeneralizedMean[A maths.Integer | maths.Float](X []A, p float64) float64 {
 	if p == math.Inf(-1) {
 		return float64(Min(X...))
 	}
-	// as p approaches postive infinity, the general mean equals the maximum
+	// as p approaches positive infinity, the general mean equals the maximum
 	if p == math.Inf(+1) {
 		return float64(Max(X...))
 	}

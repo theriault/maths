@@ -7,7 +7,7 @@ import (
 )
 
 // Kurtosis returns the "tailedness" of the probability distribution of a
-// real-valued random vairable. It is the 4th central moment divided by the
+// real-valued random variable. It is the 4th central moment divided by the
 // standard deviation raised to the 4th power.
 //
 // See also SampleKurtosis and ExcessSampleKurtosis.
