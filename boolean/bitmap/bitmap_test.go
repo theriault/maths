@@ -79,8 +79,8 @@ func TestLen(t *testing.T) {
 }
 
 func TestAnd(t *testing.T) {
-	a := New(9)
-	b := New(10)
+	a := New(65)
+	b := New(66)
 	a.Set(0)
 	b.Set(0)
 	a.Set(1)
@@ -93,8 +93,8 @@ func TestAnd(t *testing.T) {
 }
 
 func TestOr(t *testing.T) {
-	a := New(9)
-	b := New(10)
+	a := New(65)
+	b := New(66)
 	a.Set(0)
 	b.Set(0)
 	a.Set(1)
@@ -108,8 +108,8 @@ func TestOr(t *testing.T) {
 }
 
 func TestXor(t *testing.T) {
-	a := New(9)
-	b := New(10)
+	a := New(65)
+	b := New(66)
 	a.Set(0)
 	b.Set(0)
 	a.Set(1)
@@ -122,7 +122,7 @@ func TestXor(t *testing.T) {
 }
 
 func TestSetAll(t *testing.T) {
-	a := New(9)
+	a := New(65)
 	a.SetAll()
 
 	if !a.Test(0) || !a.Test(1) || !a.Test(2) || !a.Test(3) || !a.Test(8) {
@@ -131,7 +131,7 @@ func TestSetAll(t *testing.T) {
 }
 
 func TestFlipAll(t *testing.T) {
-	a := New(9)
+	a := New(65)
 	a.Set(0)
 	a.Set(2)
 	a.FlipAll()
@@ -142,7 +142,7 @@ func TestFlipAll(t *testing.T) {
 }
 
 func TestClearAll(t *testing.T) {
-	a := New(9)
+	a := New(65)
 	a.Set(0)
 	a.Set(1)
 	a.Set(2)
@@ -152,6 +152,18 @@ func TestClearAll(t *testing.T) {
 
 	if a.Test(0) || a.Test(1) || a.Test(2) || a.Test(3) || a.Test(8) {
 		t.Errorf("got %b, expected 0b0_0000_0000", a.bits)
+	}
+}
+
+func TestSum(t *testing.T) {
+	a := New(65)
+	a.Set(0)
+	a.Set(1)
+	a.Set(2)
+	a.Set(3)
+
+	if c := a.Sum(); c != 4 {
+		t.Errorf("got %d, expected 4", c)
 	}
 }
 
@@ -175,5 +187,18 @@ func BenchmarkBitmapXor(b *testing.B) {
 	c.FlipAll()
 	for i := 0; i < b.N; i++ {
 		a.Xor(c)
+	}
+}
+
+func BenchmarkBitmapSum(b *testing.B) {
+	m := New(80000)
+	m.Set(0)
+	m.Set(8)
+	m.Set(16)
+	m.Set(24)
+	m.Set(32)
+	m.Set(40)
+	for i := 0; i < b.N; i++ {
+		_ = m.Sum()
 	}
 }
