@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Release
 
 # Controls when the workflow will run
 on:
@@ -32,7 +32,7 @@ jobs:
           
       # Runs a single command using the runners shell
       - name: Update golang
-        run: curl "https://sum.golang.org/lookup/github.com/theriault/maths@v${SOURCE_TAG}"
+        run: curl "https://sum.golang.org/lookup/github.com/theriault/maths@${SOURCE_TAG}"
         env:
           SOURCE_TAG: ${{ steps.branch_name.outputs.SOURCE_TAG }}
 
