@@ -34,7 +34,7 @@ combinatorics.Factorial(10) // will return uint64(3628800)
 
 [Source](/combinatorics/falling_factorial.go) | [Tests](/combinatorics/falling_factorial_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Falling_and_rising_factorials)
 
-$ \displaystyle x^{\underline{n}} \\; = \\; \prod _{k=1}^{n}(x-k+1) $
+$\displaystyle x^{\underline{n}} \\; = \\; \prod _{k=1}^{n}(x-k+1)$
 
 ```go
 combinatorics.FallingFactorial(8, 3) // will return uint64(336)
@@ -45,7 +45,7 @@ combinatorics.PartialPermutations(8, 3) // will return uint64(336)
 
 [Source](/combinatorics/rising_factorial.go) | [Tests](/combinatorics/rising_factorial_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Falling_and_rising_factorials)
 
-$ \displaystyle x^{\overline{n}} \\; = \\; \prod _{k=1}^{n}(x+k-1) $
+$\displaystyle x^{\overline{n}} \\; = \\; \prod _{k=1}^{n}(x+k-1)$
 
 ```go
 combinatorics.RisingFactorial(2, 3) // will return uint64(24)
@@ -61,7 +61,7 @@ import "github.com/theriault/maths/numbertheory"
 
 [Source](/numbertheory/aliquot_sum.go) | [Tests](/numbertheory/aliquot_sum_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Aliquot_sum) | [OEIS](https://oeis.org/A001065)
 
-$ \displaystyle s(n) = \sigma_1(n) - n = \sum_{\substack{i = 1 \\\\ i | n}}^{n-1} i $
+$\displaystyle s(n) = \sigma_1(n) - n = \sum_{\substack{i = 1 \\\\ i | n}}^{n-1} i$
 
 ```go
 numbertheory.AliquotSum(60) // will return uint64(108)
@@ -69,7 +69,7 @@ numbertheory.AliquotSum(60) // will return uint64(108)
 
 #### Divisors function
 
-$ \displaystyle \sigma_z(n) = \sum_{\substack{i = 1 \\\\ i | n}}^{n} i^{z} $
+$\displaystyle \sigma_z(n) = \sum_{\substack{i = 1 \\\\ i | n}}^{n} i^{z}$
 
 ##### Number-of-divisors (z = 0)
 
@@ -91,7 +91,7 @@ numbertheory.SumOfDivisors(48) // will return uint64(124)
 
 [Source](/numbertheory/mobius.go) | [Tests](/numbertheory/mobius_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Mobius_function) | [OEIS](https://oeis.org/A008683)
 
-$ \displaystyle \mu(n) = \begin{cases} +1 & n \text{ is square-free with even number of prime factors} \\\\ -1 & n \text{ is square-free with odd number of prime factors} \\\\ 0 & n \text{ is not square-free} \end{cases} $
+$\displaystyle \mu(n) = \begin{cases} +1 & n \text{ is square-free with even number of prime factors} \\\\ -1 & n \text{ is square-free with odd number of prime factors} \\\\ 0 & n \text{ is not square-free} \end{cases}$
 
 ```go
 numbertheory.Mobius(70) // will return int8(-1)
@@ -101,7 +101,7 @@ numbertheory.Mobius(70) // will return int8(-1)
 
 [Source](/numbertheory/politeness.go) | [Tests](/numbertheory/politeness_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Polite_number) | [OEIS](https://oeis.org/A069283)
 
-$ \displaystyle p(n) = \left( \prod_{\substack{p |n \\\\ p \neq 2}}^{n} v_p(n) + 1\right)-1 $
+$\displaystyle p(n) = \left( \prod_{\substack{p |n \\\\ p \neq 2}}^{n} v_p(n) + 1\right)-1$
 
 where $v_p(n)$ is the [$p$-adic order](https://en.wikipedia.org/wiki/P-adic_order#Integers)
 
@@ -147,7 +147,7 @@ numbertheory.PrimeFactorization(184756) // will return []uint64{2, 2, 11, 13, 17
 
 [Source](/numbertheory/primorial.go) | [Tests](/numbertheory/primorial_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Primorial) | [OEIS](https://oeis.org/A002110)
 
-$ \displaystyle n\\# = \prod_{\substack{i=2 \\\\ i \in \mathbb{P}}}^{n} i $
+$\displaystyle n\\# = \prod_{\substack{i=2 \\\\ i \in \mathbb{P}}}^{n} i$
 
 ```go
 numbertheory.Primorial(30) // will return uint64(6469693230)
@@ -157,7 +157,7 @@ numbertheory.Primorial(30) // will return uint64(6469693230)
 
 [Source](/numbertheory/radical.go) | [Tests](/numbertheory/radical_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Radical_of_an_integer) | [OEIS](https://oeis.org/A007947)
 
-$ \displaystyle rad(n) = \prod_{p | n}p $
+$\displaystyle rad(n) = \prod_{p | n}p$
 
 ```go
 numbertheory.Radical(60) // will return uint64(30)
@@ -206,7 +206,7 @@ statistics.RootMeanSquare(1, 1000)  // will return float64(707.1071347398497)
 
 [Source](/statistics/mean.go) | [Tests](/statistics/mean_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Mean#Arithmetic_mean_(AM))
 
-$ \displaystyle \bar{x} = \frac{1}{n}\left (\sum_{i=1}^n{x_i}\right ) = \frac{x_1+x_2+\cdots +x_n}{n} $
+$\displaystyle \bar{x} = \frac{1}{n}\left (\sum_{i=1}^n{x_i}\right ) = \frac{x_1+x_2+\cdots +x_n}{n}$
 
 ```go
 statistics.Mean(1, 1000) // will return float64(500.5)
@@ -216,7 +216,7 @@ statistics.Mean(1, 1000) // will return float64(500.5)
 
 [Source](/statistics/geometric_mean.go) | [Tests](/statistics/geometric_mean_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Mean#Geometric_mean_(GM))
 
-$ \displaystyle \bar{x} = \left( \prod_{i=1}^n{x_i} \right )^\frac{1}{n} = \exp{\left( {\frac{1}{n}\sum\limits_{i=1}^{n}\ln x_i} \right)} = \left(x_1 x_2 \cdots x_n \right)^\frac{1}{n} $
+$\displaystyle \bar{x} = \left( \prod_{i=1}^n{x_i} \right )^\frac{1}{n} = \exp{\left( {\frac{1}{n}\sum\limits_{i=1}^{n}\ln x_i} \right)} = \left(x_1 x_2 \cdots x_n \right)^\frac{1}{n}$
 
 ```go
 statistics.GeometricMean(1, 1000) // will return float64(31.62...)
@@ -226,7 +226,7 @@ statistics.GeometricMean(1, 1000) // will return float64(31.62...)
 
 [Source](/statistics/harmonic_mean.go) | [Tests](/statistics/harmonic_mean_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Mean#Harmonic_mean_(HM))
 
-$ \displaystyle \bar{x} = n \left ( \sum_{i=1}^n \frac{1}{x_i} \right ) ^{-1} $
+$\displaystyle \bar{x} = n \left ( \sum_{i=1}^n \frac{1}{x_i} \right ) ^{-1}$
 
 ```go
 statistics.HarmonicMean(1, 1000) // will return float64(1.99...)
@@ -278,7 +278,7 @@ statistics.ExcessSampleKurtosis([]uint8{8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8}) // ret
 
 [Source](/statistics/logistic_function.go) | [Tests](/statistics/logistic_function_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Logistic_function)
 
-$ \displaystyle f(x) = \frac{L}{1+e^{-k(x-x_0)}}$
+$\displaystyle f(x) = \frac{L}{1+e^{-k(x-x_0)}}$
 
 - $L$ - curve's max value
 - $x_0$ - sigmoid's midpoint
@@ -303,7 +303,7 @@ statistics.Mode(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
 
 [Source](/statistics/power_sum.go) | [Tests](/statistics/power_sum_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Sums_of_powers)
 
-$ \displaystyle S_p(x_1, x_2, ..., x_n) = \sum_{i=1}^{n} x_i^p $
+$\displaystyle S_p(x_1, x_2, ..., x_n) = \sum_{i=1}^{n} x_i^p$
 
 ```go
 statistics.PowerSum([]float64{2, 3, 4}, 2) // will return float64(29)
@@ -313,7 +313,7 @@ statistics.PowerSum([]float64{2, 3, 4}, 2) // will return float64(29)
 
 [Source](/statistics/power_sum_around.go) | [Wikipedia](https://en.wikipedia.org/wiki/Sums_of_powers)
 
-$ \displaystyle S_{p,y}(x_1, x_2, ..., x_n) = \sum_{i=1}^{n} (x_i - y)^p $
+$\displaystyle S_{p,y}(x_1, x_2, ..., x_n) = \sum_{i=1}^{n} (x_i - y)^p$
 
 ```go
 statistics.PowerSumAround([]float64{2, 3, 4}, 3, 2) // will return float64(29)
@@ -396,7 +396,7 @@ statistics.SampleSkewness(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // returns float64(-0
 
 [Source](/statistics/standard_deviation.go) | [Tests](/statistics/standard_deviation_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation)
 
-$ \displaystyle \sigma = \sqrt{\left(\frac{1}{N} \sum_{i=1}^{N} x_{i}^{2} \right) - \mu^2}$
+$\displaystyle \sigma = \sqrt{\left(\frac{1}{N} \sum_{i=1}^{N} x_{i}^{2} \right) - \mu^2}$
 
 ```go
 statistics.StandardDeviation(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
@@ -406,7 +406,7 @@ statistics.StandardDeviation(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []f
 
 [Source](/statistics/sample_standard_deviation.go) | [Tests](/statistics/sample_standard_deviation_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Standard_deviation)
 
-$ \displaystyle s = \sqrt{\sigma^2 \frac{N}{N-1}}$
+$\displaystyle s = \sqrt{\sigma^2 \frac{N}{N-1}}$
 
 ```go
 statistics.SampleStandardDeviation(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
@@ -418,7 +418,7 @@ statistics.SampleStandardDeviation(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will retu
 
 [Source](/statistics/standard_error.go) | [Tests](/statistics/standard_error_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Standard_error)
 
-$ \displaystyle \sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}$
+$\displaystyle \sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}$
 
 ```go
 statistics.StandardError(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
@@ -428,7 +428,7 @@ statistics.StandardError(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float
 
 [Source](/statistics/sample_standard_error.go) | [Tests](/statistics/sample_standard_error_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Standard_error)
 
-$ \displaystyle s_{\bar{x}} = \frac{s}{\sqrt{n}}$
+$\displaystyle s_{\bar{x}} = \frac{s}{\sqrt{n}}$
 
 ```go
 statistics.SampleStandardError(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
@@ -438,7 +438,7 @@ statistics.SampleStandardError(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return [
 
 [Source](/statistics/sum.go) | [Tests](/statistics/sum_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Summation)
 
-$ \displaystyle S(x_1, x_2, ..., x_n) = \sum_{i=1}^{n} x_i $
+$\displaystyle S(x_1, x_2, ..., x_n) = \sum_{i=1}^{n} x_i $
 
 ```go
 statistics.Sum(1.1, 1.2, 1.3) // will return float64(3.6)
@@ -450,7 +450,7 @@ statistics.Sum(1.1, 1.2, 1.3) // will return float64(3.6)
 
 [Source](/statistics/variance.go) | [Tests](/statistics/variance_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Variance)
 
-$ \displaystyle \sigma^2 = \left(\frac{1}{N} \sum_{i=1}^{N} x_{i}^{2} \right) - \mu^2$
+$\displaystyle \sigma^2 = \left(\frac{1}{N} \sum_{i=1}^{N} x_{i}^{2} \right) - \mu^2$
 
 ```go
 statistics.Variance(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
@@ -460,7 +460,7 @@ statistics.Variance(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
 
 [Source](/statistics/sample_variance.go) | [Tests](/statistics/sample_variance_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Variance)
 
-$ \displaystyle s^2 = \sigma^2 \frac{N}{N-1}$
+$\displaystyle s^2 = \sigma^2 \frac{N}{N-1}$
 
 ```go
 statistics.SampleVariance(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
