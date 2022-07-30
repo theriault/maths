@@ -507,3 +507,7 @@ X := []uint8{8, 7, 3, 2, 6, 11, 6, 7, 2, 1, 7}
 W := []uint8{1, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2}
 mean, err := statistics.WeightedHarmonicMean(X, Y) // will return float64(5.8)
 ```
+
+## Complexity
+
+See [docs/complexity.md](docs/complexity.md) for information on time complexity and space complexity.
