@@ -6,14 +6,14 @@
 |---------------------------|----------|--------|
 | `And`                     | $O(\min(n,m))$ | $O(1)$ |
 | `Clear`                   | $O(1)$   | $O(1)$ |
-| `ClearAll`                | $O(n)$ | $O(1)$ |
+| `ClearAll`                | $O(n)$   | $O(1)$ |
 | `Flip`                    | $O(1)$   | $O(1)$ |
-| `FlipAll`                 | $O(n)$ | $O(1)$ |
+| `FlipAll`                 | $O(n)$   | $O(1)$ |
 | `Len`                     | $O(1)$   | $O(1)$ |
 | `Or`                      | $O(\min(n,m))$ | $O(1)$ |
 | `Set`                     | $O(1)$   | $O(1)$ |
-| `SetAll`                  | $O(n)$ | $O(1)$ |
-| `Sum`                     | $O(n)$ | $O(1)$ |
+| `SetAll`                  | $O(n)$   | $O(1)$ |
+| `Sum`                     | $O(n)$   | $O(1)$ |
 | `Test`                    | $O(1)$   | $O(1)$ |
 | `Valid`                   | $O(1)$   | $O(1)$ |
 | `Xor`                     | $O(\min(n,m))$ | $O(1)$ |
@@ -32,6 +32,9 @@
 | Function             | Time         | Space |
 |----------------------|--------------|-------|
 | `AliquotSum`         | $O(n^{0.5})$ | $O(\log{n})$ |
+| `Coprime`            | $O(\log{\max(n,m)})$ | $O(1)$ |
+| `GCD`                | $O(\log{\max(n,m)})$ | $O(1)$ |
+| `LCM`                | $O(\log{\max(n,m)})$ | $O(1)$ |
 | `Mobius`             | $O(n^{0.5})$ | $O(\log{n})$ |
 | `NumberOfDivisors`   | $O(n^{0.5})$ | $O(\log{n})$ |
 | `Politeness`         | $O(n^{0.5})$ | $O(\log{n})$ |

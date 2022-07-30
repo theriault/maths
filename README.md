@@ -67,6 +67,14 @@ $\displaystyle s(n) = \sigma_1(n) - n = \sum_{\substack{i = 1 \\\\ i | n}}^{n-1}
 numbertheory.AliquotSum(60) // will return uint64(108)
 ```
 
+#### Coprime
+
+[Source](/numbertheory/coprime.go) | [Tests](/numbertheory/coprime_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Coprime)
+
+```go
+numbertheory.Coprime(3*5*7, 11*13*17) // will return true
+```
+
 #### Divisors function
 
 $\displaystyle \sigma_z(n) = \sum_{\substack{i = 1 \\\\ i | n}}^{n} i^{z}$
@@ -85,6 +93,22 @@ numbertheory.NumberOfDivisors(48) // will return uint64(10)
 
 ```go
 numbertheory.SumOfDivisors(48) // will return uint64(124)
+```
+
+#### Greatest Common Divisor
+
+[Source](/numbertheory/gcd.go) | [Tests](/numbertheory/gcd_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Greatest_common_divisor)
+
+```go
+numbertheory.GCD(48,18) // will return int(6)
+```
+
+#### Least Common Multiple
+
+[Source](/numbertheory/lcm.go) | [Tests](/numbertheory/lcm_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Least_common_multiple)
+
+```go
+numbertheory.LCM(48,18) // will return int(144)
 ```
 
 #### Möbius function
