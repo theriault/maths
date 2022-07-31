@@ -150,6 +150,11 @@ func (b *Bitmap) SetAll() {
 func (b *Bitmap) Sum() int {
 	c := 0
 	for i, n := 0, len(b.bits); i < n; i++ {
+		// Using bits.OnesCount64(b.bits[i]):
+		// BenchmarkBitmapSum-16            2026874               591.1 ns/op             0 B/op          0 allocs/op
+
+		// Current code:
+		// BenchmarkBitmapSum-16            3843483               336.4 ns/op             0 B/op          0 allocs/op
 		x := b.bits[i]
 		x -= (x >> 1) & m1
 		x = (x & m2) + ((x >> 2) & m2)
