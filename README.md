@@ -71,8 +71,29 @@ numbertheory.AliquotSum(60) // will return uint64(108)
 
 [Source](/numbertheory/coprime.go) | [Tests](/numbertheory/coprime_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Coprime)
 
+$\displaystyle f(a,b) = \begin{cases}\text{true} &\text{if}\ \gcd(a,b) = 1 \\ \text{false} &\text{else} \end{cases}$
 ```go
 numbertheory.Coprime(3*5*7, 11*13*17) // will return true
+```
+
+#### Digit Sum
+
+[Source](/numbertheory/digit_sum.go) | [Tests](/numbertheory/digit_sum_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Digit_sum)
+
+$\displaystyle f_b(n) = \sum_{i=0}^{\lfloor \log_b{n} \rfloor} \frac{n \bmod b^{i+1} - n \bmod b^i}{b^i}$
+
+```go
+numbertheory.DigitSum(9045, 10) // will return int(18)
+```
+
+#### Digital Root
+
+[Source](/numbertheory/digital_root.go) | [Tests](/numbertheory/digital_root_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Digital_root)
+
+$\displaystyle f_{b}(n)={\begin{cases} 0 &\text{if}\ n=0\\ n\ \bmod (b-1)&{\text{if}}\ n\not \equiv 0{\pmod {b-1}} \\ b-1 &\text{else} \end{cases}}$
+
+```go
+numbertheory.DigitalRoot(9045, 10) // will return int(9)
 ```
 
 #### Divisors function
