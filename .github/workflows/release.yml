@@ -23,18 +23,23 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Branch name
+      # Runs a single command using the runners shell
+      - name: Determine branch name
         id: branch_name
         run: |
           echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
           echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}
           echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
           
-      # Runs a single command using the runners shell
       - name: Update golang
         run: curl "https://sum.golang.org/lookup/github.com/theriault/maths@${SOURCE_TAG}"
         env:
           SOURCE_TAG: ${{ steps.branch_name.outputs.SOURCE_TAG }}
 
       - name: Update GoReportCard
-        run: curl https://goreportcard.com/report/github.com/theriault/maths
+        run: >-
+          curl
+          --header "Content-Type: application/json"
+          --request POST
+          --data '{"repo":"github.com/theriault/maths"}'
+          https://goreportcard.com/checks
