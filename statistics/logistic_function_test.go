@@ -29,7 +29,9 @@ func TestLogisticFunction(t *testing.T) {
 		},
 	}
 	for _, c := range cases {
+		c := c
 		t.Run(c.name, func(t *testing.T) {
+			t.Parallel()
 			actual := fmt.Sprintf("%.8f", fn(c.x))
 			if actual != c.expected {
 				t.Logf("expected %v, got %v", c.expected, actual)
