@@ -344,6 +344,18 @@ fx := statistics.LogisticFunction(maxValue, midpoint, growthRate) // will return
 statistics.Mode(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
 ```
 
+#### Moving Averages
+
+##### Simple Moving Average
+
+[Source](/statistics/simple_moving_average.go) | [Tests](/statistics/simple_moving_average_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Moving_average#Simple_moving_average)
+
+$\displaystyle {\begin{aligned}{\textit {SMA}}_{k}&={\frac{p_{n-k+1}+p_{n-k+2}\cdots +p_{n}}{k}}\\&={\frac{1}{k}}\sum_{i=n-k+1}^np_i\end{aligned}}$
+
+```go
+statistics.SimpleMovingAverage(3, 1, 2, 3, 4, 5, 6, 7, 8, 9) // will return []float64{2, 3, 4, 5, 6, 7, 8}
+```
+
 #### Power Sum
 
 [Source](/statistics/power_sum.go) | [Tests](/statistics/power_sum_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Sums_of_powers)

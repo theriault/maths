@@ -75,6 +75,7 @@
 | `SampleStandardDeviation` | $O(n)$ | $O(1)$
 | `SampleStandardError`     | $O(n)$ | $O(1)$
 | `SampleVariance`          | $O(n)$ | $O(1)$
+| `SimpleMovingAverage`     | $O(n)$ | $O(k)$
 | `Skewness`                | $O(n)$ | $O(1)$
 | `StandardDeviation`       | $O(n)$ | $O(1)$
 | `StandardError`           | $O(n)$ | $O(1)$
