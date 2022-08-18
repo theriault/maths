@@ -1,6 +1,9 @@
 package numbertheory
 
-import "github.com/theriault/maths"
+import (
+	"github.com/theriault/maths"
+	"github.com/theriault/maths/numbertheory/primefactorization"
+)
 
 // Radical returns the product of the distinct primes dividing n.
 //
@@ -8,15 +11,5 @@ import "github.com/theriault/maths"
 //
 // https://oeis.org/A007947
 func Radical[A maths.Integer](n A) uint64 {
-	factors := PrimeFactorization(n)
-	radical := uint64(1)
-	last := uint64(1)
-	for _, p := range factors {
-		if p == last {
-			continue
-		}
-		radical *= p
-		last = p
-	}
-	return radical
+	return primefactorization.NewPrimeFactorization(n).Radical()
 }

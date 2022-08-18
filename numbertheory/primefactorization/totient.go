@@ -1,8 +1,7 @@
-package numbertheory
+package primefactorization
 
 import (
-	"github.com/theriault/maths"
-	"github.com/theriault/maths/numbertheory/primefactorization"
+	"math"
 )
 
 // Totient (Euler's totient) returns the number of positive integers up to a given integer n that are relatively prime
@@ -11,8 +10,8 @@ import (
 // https://en.wikipedia.org/wiki/Euler's_totient_function
 //
 // https://oeis.org/A000010
-func Totient[A maths.Integer](n A) uint64 {
-	return primefactorization.NewPrimeFactorization(n).Totient()
+func (pf *PrimeFactorization) Totient() uint64 {
+	return pf.TotientK(1)
 }
 
 // TotientK (Jordan's totient) returns the number of k-tuples of positive integers that are less than or equal to n and
@@ -21,6 +20,15 @@ func Totient[A maths.Integer](n A) uint64 {
 // https://en.wikipedia.org/wiki/Jordan's_totient_function
 //
 // https://oeis.org/A007434 (k=2)
-func TotientK[A maths.Integer, B maths.Integer](n A, k B) uint64 {
-	return primefactorization.NewPrimeFactorization(n).TotientK(int64(k))
+func (pf *PrimeFactorization) TotientK(k int64) uint64 {
+	J := math.Pow(float64(pf.n), float64(k))
+	last := uint64(0)
+	for _, p := range pf.primes {
+		if p != last {
+			J *= 1 - 1/math.Pow(float64(p), float64(k))
+		}
+		last = p
+	}
+
+	return uint64(J)
 }
