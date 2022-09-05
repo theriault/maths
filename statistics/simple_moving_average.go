@@ -8,7 +8,7 @@ import (
 //
 // If k < 1, returns an empty result.
 //
-// If k > n, returns an n-sized array.
+// If k > n, returns a 1-element slice.
 //
 // https://en.wikipedia.org/wiki/Moving_average#Simple_moving_average
 func SimpleMovingAverage[Integer maths.Integer, Number maths.Integer | maths.Float](k Integer, numbers ...Number) []float64 {
