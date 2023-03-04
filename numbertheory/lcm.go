@@ -8,6 +8,9 @@ import (
 
 // LCM returns the smallest positive integer that is divisible by both a and b.
 //
+// Time complexity: O(log n) - where n is whichever number is smaller
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Least_common_multiple
 func LCM[A maths.Integer](a, b A) A {
 	if a == 0 && b == 0 {

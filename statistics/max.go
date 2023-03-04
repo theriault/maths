@@ -11,6 +11,9 @@ import (
 // Nullary invocation returns the default value of the type.
 // Any NaN returns NaN.
 //
+// Time complexity: O(n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Sample_maximum_and_minimum
 func Max[A maths.Integer | maths.Float](a ...A) A {
 	l := len(a)

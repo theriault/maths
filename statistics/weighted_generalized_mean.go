@@ -9,6 +9,9 @@ import (
 
 // WeightedGeneralizedMean
 //
+// Time complexity: O(n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Generalized_mean
 func WeightedGeneralizedMean[A maths.Integer | maths.Float, B maths.Integer | maths.Float](X []A, W []B, p float64) (float64, error) {
 	if len(X) == 0 {

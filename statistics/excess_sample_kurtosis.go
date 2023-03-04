@@ -6,6 +6,9 @@ import (
 
 // ExcessSampleKurtosis
 //
+// Time complexity: O(n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Kurtosis
 func ExcessSampleKurtosis[A maths.Integer | maths.Float](X ...A) float64 {
 	n := float64(len(X))

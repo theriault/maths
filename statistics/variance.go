@@ -8,6 +8,9 @@ import (
 // variable from its mean. Variance is a measure of dispersion, meaning it is a
 // measure of how far a set of numbers is spread out from their average value.
 //
+// Time complexity: O(n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Variance#Population_variance
 func Variance[A maths.Integer | maths.Float](X ...A) float64 {
 	return CentralMoment(X, 2)

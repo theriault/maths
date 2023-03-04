@@ -11,6 +11,9 @@ import (
 //
 // If X has no elements, returns the additive identity (0).
 //
+// Time complexity: O(n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Sums_of_powers
 func PowerSumAround[A maths.Integer | maths.Float](X []A, y float64, p int) float64 {
 	s := float64(0)

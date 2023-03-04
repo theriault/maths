@@ -6,6 +6,9 @@ import (
 
 // DigitalRoot returns a single digit after iteratively summing the digits of n in a given radix/base.
 //
+// Time complexity: O(1)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Digital_root
 func DigitalRoot[A maths.Integer](n, b A) A {
 	// any b<1 will return 0. any n<1 will return 0. caller can verify it was an error by checking if n>0

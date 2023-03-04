@@ -11,6 +11,9 @@ import (
 // Nullary invocation returns an empty array.
 // The result may be unimodal or multimodal depending on the distribution of the data.
 //
+// Time complexity: O(n log n)
+// Space complexity: O(n)
+//
 // https://en.wikipedia.org/wiki/Mode_(statistics)
 func Mode[A maths.Integer | maths.Float](numbers ...A) []float64 {
 	modes := make([]float64, 0)

@@ -11,6 +11,9 @@ import (
 //
 // When x = n, this is the same as Factorial(x, n).
 //
+// Time complexity: O(n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Falling_and_rising_factorials
 func FallingFactorial[A maths.Integer, B maths.Integer](x A, n B) (uint64, error) {
 	if n < 0 {

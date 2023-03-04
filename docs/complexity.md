@@ -34,9 +34,9 @@
 | `AliquotSum`         | $O(n^{0.5})$ | $O(\log{n})$ |
 | `DigitSum`           | $O(\log_b n)$| $O(1)$ |
 | `DigitalRoot`        | $O(1)$| $O(1)$ |
-| `Coprime`            | $O(\log{\max(n,m)})$ | $O(1)$ |
-| `GCD`                | $O(\log{\max(n,m)})$ | $O(1)$ |
-| `LCM`                | $O(\log{\max(n,m)})$ | $O(1)$ |
+| `Coprime`            | $O(\log{\min(n,m)})$ | $O(1)$ |
+| `GCD`                | $O(\log{\min(n,m)})$ | $O(1)$ |
+| `LCM`                | $O(\log{\min(n,m)})$ | $O(1)$ |
 | `Mobius`             | $O(n^{0.5})$ | $O(\log{n})$ |
 | `NumberOfDivisors`   | $O(n^{0.5})$ | $O(\log{n})$ |
 | `Politeness`         | $O(n^{0.5})$ | $O(\log{n})$ |

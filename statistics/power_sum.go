@@ -11,6 +11,9 @@ import (
 //
 // Nullary invocation returns the additive identity (0).
 //
+// Time complexity: O(n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Sums_of_powers
 func PowerSum[A maths.Integer | maths.Float](X []A, p float64) float64 {
 	s := float64(0)

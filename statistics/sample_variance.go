@@ -8,6 +8,9 @@ import (
 // variable from its mean after applying Bessel's correction to account for bias
 // when the population mean is unknown.
 //
+// Time complexity: O(n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Variance#Sample_variance
 //
 // https://en.wikipedia.org/wiki/Bessel%27s_correction

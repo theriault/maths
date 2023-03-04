@@ -13,6 +13,9 @@ import (
 // If b<1 or n<=0, returns 0. Caller can verify it was an error by checking if n>0. A future version of this
 // function may handle negative n.
 //
+// Time complexity: O(log_b n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Digit_sum
 func DigitSum[A maths.Integer](n, b A) A {
 	// any b<1 will return 0. any n<1 will return 0. caller can verify it was an error by checking if n>0

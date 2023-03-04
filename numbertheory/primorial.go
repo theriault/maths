@@ -27,6 +27,9 @@ var primorialMemoization [16][2]uint64 = [16][2]uint64{
 
 // Primorial returns the product of all primes up to n. n must be 0 <= n <= 52.
 //
+// Time complexity: O(1)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Primorial
 //
 // https://oeis.org/A002110

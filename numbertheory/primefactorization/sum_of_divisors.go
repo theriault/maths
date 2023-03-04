@@ -2,6 +2,9 @@ package primefactorization
 
 // SumOfDivisors returns the sum of the divisors of n.
 //
+// Time complexity: O(log n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Divisor_function
 //
 // https://oeis.org/A000203

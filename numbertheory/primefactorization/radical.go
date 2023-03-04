@@ -2,6 +2,9 @@ package primefactorization
 
 // Radical returns the product of the distinct primes dividing n.
 //
+// Time complexity: O(log n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Radical_of_an_integer
 //
 // https://oeis.org/A007947
