@@ -15,7 +15,7 @@ type Bitmap struct {
 	bits []uint64
 }
 
-// New creates a bitmap with len bits.
+// New creates a bitmap with len bits. It reserves bits in 64-bit increments
 func New(len int) Bitmap {
 	b := Bitmap{}
 	b.max = len
@@ -28,11 +28,15 @@ func New(len int) Bitmap {
 }
 
 // Valid returns whether or not the offset is valid within the bitmap.
+// Time complexity: O(1)
+// Space complexity: O(1)
 func (b *Bitmap) Valid(offset int) bool {
 	return offset >= 0 && offset < b.max
 }
 
 // Set the bit at the given offset.
+// Time complexity: O(1)
+// Space complexity: O(1)
 func (b *Bitmap) Set(offset int) bool {
 	if !b.Valid(offset) {
 		return false
@@ -42,6 +46,8 @@ func (b *Bitmap) Set(offset int) bool {
 }
 
 // Clear the bit at the given offset.
+// Time complexity: O(1)
+// Space complexity: O(1)
 func (b *Bitmap) Clear(offset int) bool {
 	if !b.Valid(offset) {
 		return false
@@ -51,6 +57,8 @@ func (b *Bitmap) Clear(offset int) bool {
 }
 
 // Flip/negate the bit at the given offset.
+// Time complexity: O(1)
+// Space complexity: O(1)
 func (b *Bitmap) Flip(offset int) bool {
 	if !b.Valid(offset) {
 		return false
@@ -61,6 +69,8 @@ func (b *Bitmap) Flip(offset int) bool {
 
 // Test the bit at the given offset. This method will return false if the offset is also invalid for the current
 // bitmap. If you are unsure about whether the given offset is valid, call Valid on the offset first.
+// Time complexity: O(1)
+// Space complexity: O(1)
 func (b *Bitmap) Test(offset int) bool {
 	if !b.Valid(offset) {
 		return false
@@ -74,6 +84,8 @@ func (b *Bitmap) Len() int {
 }
 
 // And does a bitwise-and with another bitmap
+// Time complexity: O(min(n,m)) - whichever bitmap is smallest where n and m are the number of bits divided by 64
+// Space complexity: O(1)
 func (b *Bitmap) And(a Bitmap) {
 	m, n := b.max-1, a.max-1
 	if m < n {
@@ -88,6 +100,8 @@ func (b *Bitmap) And(a Bitmap) {
 }
 
 // Or does a bitwise-or with another bitmap
+// Time complexity: O(min(n,m)) - whichever bitmap is smallest where n and m are the number of bits divided by 64
+// Space complexity: O(1)
 func (b *Bitmap) Or(a Bitmap) {
 	m, n := b.max-1, a.max-1
 	if m < n {
@@ -102,6 +116,8 @@ func (b *Bitmap) Or(a Bitmap) {
 }
 
 // Xor does a bitwise-xor with another bitmap
+// Time complexity: O(min(n,m)) - whichever bitmap is smallest where n and m are the number of bits divided by 64
+// Space complexity: O(1)
 func (b *Bitmap) Xor(a Bitmap) {
 	m, n := b.max-1, a.max-1
 	if m < n {
@@ -116,6 +132,8 @@ func (b *Bitmap) Xor(a Bitmap) {
 }
 
 // Flip/negate all bits in the bitmap
+// Time complexity: O(min(n,m)) - whichever bitmap is smallest where n and m are the number of bits divided by 64
+// Space complexity: O(1)
 func (b *Bitmap) FlipAll() {
 	n := b.max - 1
 	x := ss - (n & ss)
@@ -127,6 +145,8 @@ func (b *Bitmap) FlipAll() {
 }
 
 // Clear all bits in the bitmap
+// Time complexity: O(min(n,m)) - whichever bitmap is smallest where n and m are the number of bits divided by 64
+// Space complexity: O(1)
 func (b *Bitmap) ClearAll() {
 	for i, n := 0, len(b.bits); i < n; i++ {
 		b.bits[i] = 0
@@ -134,6 +154,8 @@ func (b *Bitmap) ClearAll() {
 }
 
 // Set all bits in the bitmap
+// Time complexity: O(min(n,m)) - whichever bitmap is smallest where n and m are the number of bits divided by 64
+// Space complexity: O(1)
 func (b *Bitmap) SetAll() {
 	n := b.max - 1
 	x := ss - (n & ss)
@@ -145,6 +167,9 @@ func (b *Bitmap) SetAll() {
 }
 
 // Sum returns the hamming weight of the bitmap, that is, the number of bits that are set.
+//
+// Time complexity: O(n) - n is the number of bits divided by 64
+// Space complexity: O(1)
 //
 // https://en.wikipedia.org/wiki/Hamming_weight
 func (b *Bitmap) Sum() int {

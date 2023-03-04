@@ -10,6 +10,9 @@ import (
 // - nullary invocation
 // - any value <= 0
 //
+// Time complexity: O(n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Harmonic_mean
 func HarmonicMean[A maths.Integer | maths.Float](X ...A) float64 {
 	return PowerMean(X, -1)

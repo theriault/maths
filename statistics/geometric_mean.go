@@ -13,6 +13,9 @@ import (
 // - nullary invocation
 // - the product of the values is < 0
 //
+// Time complexity: O(n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Geometric_mean
 func GeometricMean[A maths.Integer | maths.Float](numbers ...A) float64 {
 	l := float64(len(numbers))

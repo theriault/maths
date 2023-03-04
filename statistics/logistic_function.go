@@ -8,6 +8,9 @@ import (
 
 // LogisticFunction
 //
+// Time complexity: O(1)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Logistic_function
 func LogisticFunction[A maths.Integer | maths.Float](max A, midpoint A, growthRate A) func(x A) float64 {
 	L := float64(max)

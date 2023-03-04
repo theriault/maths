@@ -7,8 +7,12 @@ import (
 )
 
 // Min returns the smallest value.
+//
 // This function returns the value as the same underlying type.
 // Nullary invocation returns the default value of the type.
+//
+// Time complexity: O(n)
+// Space complexity: O(1)
 //
 // https://en.wikipedia.org/wiki/Sample_maximum_and_minimum
 func Min[A maths.Integer | maths.Float](a ...A) A {

@@ -7,6 +7,9 @@ import (
 
 // AliquotSum returns the sum of all proper divisors of n (all divisors except n itself).
 //
+// Time complexity: O(sqrt n)
+// Space complexity: O(log n)
+//
 // https://en.wikipedia.org/wiki/Aliquot_sum
 //
 // https://oeis.org/A001065

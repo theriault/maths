@@ -4,7 +4,8 @@
 [![Go](https://github.com/Theriault/maths/actions/workflows/go.yml/badge.svg)](https://github.com/Theriault/maths/actions/workflows/go.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/theriault/maths)](https://goreportcard.com/report/github.com/theriault/maths)
 
-maths includes mathematical functions not defined in the standard Go math package.
+maths includes mathematical functions not defined in the standard Go math package. Most functions support any primitive
+integer or float type through generics.
 
 ## Installation
 
@@ -489,6 +490,19 @@ $\displaystyle s_{\bar{x}} = \frac{s}{\sqrt{n}}$
 
 ```go
 statistics.SampleStandardError(8, 3, 6, 2, 7, 1, 8, 3, 7, 4, 8) // will return []float64{8}
+```
+
+#### Softmax
+
+[Source](/statistics/softmax.go) | [Tests](/statistics/softmax_test.go) | [Wikipedia](https://en.wikipedia.org/wiki/Softmax)
+
+```go
+X := []float64{1, 2, 3, 4, 1, 2, 3}
+statistics.Softmax(X) // will return []float64{0.0236405, 0.0642617, 0.1746813, 0.4748330, 0.0236405, 0.0642617, 0.1746813}
+statistics.MutableSoftmax(X) // same as above, but will modify X and return X
+
+X = []float64{1, 2, 3, 4, 1, 2, 3}
+statistics.GeneralizedSoftmax(X, 0.5) // will return []float64{0.0018889, 0.0139573, 0.1031315, 0.7620445, 0.0018889, 0.0139573, 0.1031315}
 ```
 
 #### Sum/Summation

@@ -8,6 +8,9 @@ import (
 
 // GeneralizedMean
 //
+// Time complexity: O(n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Generalized_mean
 func GeneralizedMean[A maths.Integer | maths.Float](X []A, p float64) float64 {
 	// as p approaches 0, the general mean equals the geometric mean
@@ -22,6 +25,7 @@ func GeneralizedMean[A maths.Integer | maths.Float](X []A, p float64) float64 {
 	if p == math.Inf(+1) {
 		return float64(Max(X...))
 	}
+	// if X is empty, return NaN
 	if len(X) == 0 {
 		return math.NaN()
 	}

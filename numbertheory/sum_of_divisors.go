@@ -7,6 +7,9 @@ import (
 
 // SumOfDivisors returns the sum of the divisors of n.
 //
+// Time complexity: O(sqrt n)
+// Space complexity: O(log n)
+//
 // https://en.wikipedia.org/wiki/Divisor_function
 //
 // https://oeis.org/A000203

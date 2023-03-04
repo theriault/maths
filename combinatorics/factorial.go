@@ -32,6 +32,9 @@ var factorialMemoization [21]uint64 = [21]uint64{
 
 // Factorial returns the product of all positive integers less than or equal to n. n must be 0 <= n <= 20.
 //
+// Time complexity: O(1) - values are already precomputed for uint64
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Factorial
 //
 // https://oeis.org/A000142

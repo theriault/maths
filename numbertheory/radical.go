@@ -7,6 +7,9 @@ import (
 
 // Radical returns the product of the distinct primes dividing n.
 //
+// Time complexity: O(sqrt n)
+// Space complexity: O(log n)
+//
 // https://en.wikipedia.org/wiki/Radical_of_an_integer
 //
 // https://oeis.org/A007947

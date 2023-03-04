@@ -1,5 +1,5 @@
 // Package primefactorization is maths primarily concerned with the prime factorization of an integer as well as
-// functions that can easily be computed when the prime factorization of an integer.
+// functions that can easily be computed when the prime factorization of an integer is already known.
 //
 // https://en.wikipedia.org/wiki/Number_theory
 package primefactorization
@@ -46,7 +46,11 @@ func (pf *PrimeFactorization) Primes() []uint64 {
 	return pf.primes
 }
 
-// NewPrimeFactorization returns the prime factorization of n.
+// NewPrimeFactorization returns the prime factorization of n. If the prime factorization is already known, then use
+// n := primefactorization.PrimeFactorization{100, []uint64{2, 2, 5, 5}}
+//
+// Time complexity: O(sqrt n)
+// Space complexity: O(log n)
 //
 // https://en.wikipedia.org/wiki/Integer_factorization
 func NewPrimeFactorization[A maths.Integer](n A) *PrimeFactorization {

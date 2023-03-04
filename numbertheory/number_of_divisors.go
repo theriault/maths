@@ -7,6 +7,9 @@ import (
 
 // NumberOfDivisors returns the number of divisors of n.
 //
+// Time complexity: O(sqrt n)
+// Space complexity: O(log n)
+//
 // https://en.wikipedia.org/wiki/Divisor_function
 //
 // https://oeis.org/A000005

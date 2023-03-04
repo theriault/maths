@@ -12,3 +12,24 @@ type Float interface {
 type Complex interface {
 	~complex64 | ~complex128
 }
+
+// Mutate copies the given slice and returns a new slice suitable for mutation.
+//
+// Space complexity: O(n)
+func Mutate[T Integer | Float | Complex](X []T) []T {
+	Y := make([]T, len(X))
+	copy(Y, X)
+	return Y
+}
+
+// Coerce copies the given slice into a new primitive type t and returns a new slice suitable for mutation
+//
+// Time complexity: O(n)
+// Space complexity: O(n)
+func Coerce[FromType Integer | Float, ToType Integer | Float](X []FromType, t ToType) []ToType {
+	coercedX := make([]ToType, len(X))
+	for k, v := range X {
+		coercedX[k] = ToType(v)
+	}
+	return coercedX
+}

@@ -10,10 +10,13 @@ import (
 //
 // Nullary invocation returns math.NaN()
 //
+// Time complexity: O(n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Mean#Arithmetic_mean_(AM)
-func Mean[A maths.Integer | maths.Float](numbers ...A) float64 {
-	if len(numbers) == 0 {
+func Mean[A maths.Integer | maths.Float](X ...A) float64 {
+	if len(X) == 0 {
 		return math.NaN()
 	}
-	return Sum(numbers...) / float64(len(numbers))
+	return float64(Sum(X...)) / float64(len(X))
 }

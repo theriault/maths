@@ -13,6 +13,9 @@ import (
 //    ----------
 //     (n - k)!
 //
+// Time complexity: O(n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Permutation
 func PartialPermutations[A maths.Integer, B maths.Integer](n A, k B) (uint64, error) {
 	if k < 0 {

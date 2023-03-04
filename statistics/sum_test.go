@@ -18,17 +18,22 @@ func TestSum(t *testing.T) {
 		{
 			name:     "no input",
 			input:    []uint{},
-			expected: "float64 0.00000",
+			expected: "uint 0",
 		},
 		{
 			name:     "uints",
 			input:    []uint{5, 15},
-			expected: "float64 20.00000",
+			expected: "uint 20",
+		},
+		{
+			name:     "uint8 overflow",
+			input:    []uint8{245, 10, 2},
+			expected: "uint8 1",
 		},
 		{
 			name:     "float32s",
 			input:    []float32{1.1, 1.2, 1.3},
-			expected: "float64 3.60000",
+			expected: "float32 3.6000001",
 		},
 	}
 
@@ -36,8 +41,10 @@ func TestSum(t *testing.T) {
 		c := c
 		t.Run(c.name, func(t *testing.T) {
 			t.Parallel()
-			var actual float64
+			var actual any
 			switch c.input.(type) {
+			case []uint8:
+				actual = Sum(c.input.([]uint8)...)
 			case []uint:
 				actual = Sum(c.input.([]uint)...)
 			case []int:
@@ -45,7 +52,7 @@ func TestSum(t *testing.T) {
 			case []float32:
 				actual = Sum(c.input.([]float32)...)
 			}
-			r := fmt.Sprintf("%T %0.5f", actual, actual)
+			r := fmt.Sprintf("%T %v", actual, actual)
 			if r != c.expected {
 				t.Logf("expected %v, got %v", c.expected, r)
 				t.FailNow()

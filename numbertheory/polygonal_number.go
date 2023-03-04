@@ -9,6 +9,9 @@ import (
 
 // PolygonalNumber returns the nth s-gon number. If s < 3, returns an error.
 //
+// Time complexity: O(1)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Polygonal_number
 func PolygonalNumber[A maths.Integer, B maths.Integer](s A, n B) (uint64, error) {
 	if s < 3 {
@@ -20,6 +23,9 @@ func PolygonalNumber[A maths.Integer, B maths.Integer](s A, n B) (uint64, error)
 }
 
 // PolygonalRoot returns the s-gonal root of x. If s < 3, returns an error.
+//
+// Time complexity: O(1)
+// Space complexity: O(1)
 //
 // https://en.wikipedia.org/wiki/Polygonal_number
 func PolygonalRoot[A maths.Integer, B maths.Integer](s A, x B) (float64, error) {
@@ -33,6 +39,9 @@ func PolygonalRoot[A maths.Integer, B maths.Integer](s A, x B) (float64, error) 
 
 // PolygonalSides returns the number of sides that the nth polygonal number with
 // a value of x has.
+//
+// Time complexity: O(1)
+// Space complexity: O(1)
 //
 // https://en.wikipedia.org/wiki/Polygonal_number
 func PolygonalSides[A maths.Integer, B maths.Integer](n A, x B) float64 {

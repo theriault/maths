@@ -2,6 +2,9 @@ package primefactorization
 
 // NumberOfDivisors returns the number of divisors of n.
 //
+// Time complexity: O(log n)
+// Space complexity: O(1)
+//
 // https://en.wikipedia.org/wiki/Divisor_function
 //
 // https://oeis.org/A000005
